@@ -248,7 +248,7 @@
         <div class="brand">
             <div class="title center-align">
                 
-                diuzi blog
+                diuzi
                 
             </div>
 
@@ -261,7 +261,7 @@
                         strings: ['靡不有初, 鲜克有终','功名半纸, 风雪千山'],
                         startDelay: 300,
                         typeSpeed: 50,
-                        loop: true,
+                        loop: false,
                         backSpeed: 30,
                         showCursor: false
                     });
@@ -905,7 +905,7 @@
             jdi147&nbsp;&copy;
             <span id="year">2020</span>
             <a href="/about" target="_blank">diuzi</a>
-            &nbsp;版权所有.
+            &nbsp;版权所有
             <!-- &nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> -->
             <!-- |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
             <br>
@@ -919,16 +919,16 @@
             
             
             <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;观剑量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;人次
             </span>
             
-            
+            <!-- 
             <span id="busuanzi_container_site_uv">
                 |&nbsp;<i class="fas fa-users"></i>&nbsp;访问人数:&nbsp;<span id="busuanzi_value_site_uv"
                     class="white-color"></span>&nbsp;人
             </span>
-            
+             -->
             <br>
             
             <span id="sitetime">载入运行时间...</span>
@@ -964,12 +964,12 @@
                         diffMinutes * minutes) / seconds);
                     if (startYear == todayYear) {
                         document.getElementById("year").innerHTML = todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
-                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        document.getElementById("sitetime").innerHTML = "此剑已铸 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " ;
                     } else {
                         document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
-                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        document.getElementById("sitetime").innerHTML = "此剑已铸 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " ;
                     }
                 }
                 setInterval(siteTime, 1000);
