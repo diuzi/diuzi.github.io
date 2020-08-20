@@ -470,7 +470,7 @@
 <li>慢指针从入环处开始跑b步，距离入环处就剩下了n。此时，快指针则是从距离入环处n步远的位置开始跑了2b步，距离入环处也是剩下了n。他们相遇了，并且距离入环处的距离就是n，n就是头节点到入环点的距离阿!!! 后面的不用说了吧。</li>
 </ol>
 <p>环很小的情况，其实跟环很大是一样的，比如你可以理解为将多个小环的循环铺开，虚拟扩展成一个大环来理解。</p>
-<p><img src="C:\Users\swordman\Desktop\image.png" alt="image"><br><strong>假设 节点到入环口长为 L，环长为C</strong><br>这里简单讨论C&gt;L的情况, 即一个大环（slow在走到入环口处，fast还没有遍历一遍环)</p>
+<p><img src="https://gitee.com/diuzi/hexoImage/raw/master/imgx/image.png"><br><strong>假设 节点到入环口长为 L，环长为C</strong><br>这里简单讨论C&gt;L的情况, 即一个大环（slow在走到入环口处，fast还没有遍历一遍环)</p>
 <blockquote>
 <ol>
 <li>slow到达入口处时，fast 在环 <strong>L%C</strong>  的位置(slow走L，fast走2L)</li>
