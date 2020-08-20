@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>pic_bed_test</title>
+      <link href="/2020/08/20/pic_bed_test/"/>
+      <url>/2020/08/20/pic_bed_test/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://gitee.com/diuzi/hexoImage/raw/master/img/20200820181034.png"></p><blockquote><p>测试一下看能够成功</p></blockquote><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>test</title>
       <link href="/2020/08/20/test/"/>
       <url>/2020/08/20/test/</url>
