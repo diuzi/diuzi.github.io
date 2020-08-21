@@ -399,21 +399,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-21
+                    2020-08-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>字数:&nbsp;&nbsp;
-                    2k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    7 分
                 </div>
                 
 
@@ -447,12 +447,37 @@
 <p><strong>如果没有环，快指针将停在链表的末尾。</strong><br><strong>如果有环，快指针最终将与慢指针相遇。</strong></p>
 </blockquote>
 <p><strong><em>这两个指针的适当速度应该是多少？</em></strong><br>一个安全的选择是每次移动慢指针一步，而移动快指针两步。每一次迭代，快速指针将额外移动一步。如果环的长度为 M，经过 M 次迭代后，快指针肯定会多绕环一周，并赶上慢指针。</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre class=" language-hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasCycle</span><span class="hljs-params">(ListNode head)</span> </span>{<br>    <span class="hljs-keyword">if</span> (head == <span class="hljs-keyword">null</span> || head.next == <span class="hljs-keyword">null</span>) {<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>    }<br>    ListNode slow = head;<br>    ListNode fast = head.next;<br>    <span class="hljs-keyword">while</span> (slow != fast) {<br>        <span class="hljs-keyword">if</span> (fast == <span class="hljs-keyword">null</span> || fast.next == <span class="hljs-keyword">null</span>) {<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        }<br>        slow = slow.next;<br>        fast = fast.next.next;<br>    }<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasCycle</span><span class="hljs-params">(ListNode head)</span> </span>{<br>    <span class="hljs-keyword">if</span> (head == <span class="hljs-keyword">null</span> || head.next == <span class="hljs-keyword">null</span>) {<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>    }<br>    ListNode slow = head;<br>    ListNode fast = head.next;<br>    <span class="hljs-keyword">while</span> (slow != fast) {<br>        <span class="hljs-keyword">if</span> (fast == <span class="hljs-keyword">null</span> || fast.next == <span class="hljs-keyword">null</span>) {<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        }<br>        slow = slow.next;<br>        fast = fast.next.next;<br>    }<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>}<br></code></pre></td></tr></tbody></table></figure>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    ListNode slow <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    ListNode fast <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>slow <span class="token operator">!=</span> fast<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>fast <span class="token operator">==</span> null <span class="token operator">||</span> fast<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <p><strong>方法2，哈希表</strong></p>
 <blockquote>
 <p>我们遍历所有结点并在哈希表中存储每个结点的引用（或内存地址）。如果当前结点为空结点 null（即已检测到链表尾部的下一个结点），那么我们已经遍历完整个链表，并且该链表不是环形链表。如果当前结点的引用已经存在于哈希表中，那么返回 true（即该链表为环形链表）</p>
 </blockquote>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre class=" language-hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasCycle</span><span class="hljs-params">(ListNode head)</span> </span>{<br>    Set&lt;ListNode&gt; nodesSeen = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();<br>    <span class="hljs-keyword">while</span> (head != <span class="hljs-keyword">null</span>) {<br>        <span class="hljs-keyword">if</span> (nodesSeen.contains(head)) {<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        } <span class="hljs-keyword">else</span> {<br>            nodesSeen.add(head);<br>        }<br>        head = head.next;<br>    }<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasCycle</span><span class="hljs-params">(ListNode head)</span> </span>{<br>    Set&lt;ListNode&gt; nodesSeen = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();<br>    <span class="hljs-keyword">while</span> (head != <span class="hljs-keyword">null</span>) {<br>        <span class="hljs-keyword">if</span> (nodesSeen.contains(head)) {<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        } <span class="hljs-keyword">else</span> {<br>            nodesSeen.add(head);<br>        }<br>        head = head.next;<br>    }<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>}<br></code></pre></td></tr></tbody></table></figure>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    Set<span class="token operator">&lt;</span>ListNode<span class="token operator">></span> nodesSeen <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>head <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nodesSeen<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            nodesSeen<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        head <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <h2 id="循环链表2">2.2 循环链表2</h2><p><strong><em>给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。</em></strong></p>
 <ol>
 <li>快指针1次走2步，慢指针1次走1步。所以快指针总是走了慢指针两倍的路。</li>
@@ -472,27 +497,102 @@
 <li>C&gt;L, 取n=1,得 t = C - L%C, 相遇，L%C=L, 即 目前两者处在环 C-L处，再走 L 长便可到达 入环处<br><strong>当C&lt;L，即小环时，n的取值较大，即两者绕环次数多一些，结果还是不变。</strong></li>
 </ol>
 </blockquote>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre class=" language-hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">detectCycle</span><span class="hljs-params">(ListNode head)</span> </span>{<br>    <span class="hljs-keyword">if</span>(head == <span class="hljs-keyword">null</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br><br>    <span class="hljs-comment">// 找到相遇点</span><br>    ListNode p1 = getIntersect(head);<br>    ListNode p2 = head;<br>    <span class="hljs-keyword">if</span>(p1 == <span class="hljs-keyword">null</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>    <span class="hljs-comment">// 头节点到入环处的距离 和 相遇点行走到 入环处的距离 相等</span><br>    <span class="hljs-keyword">while</span>(p1 != p2){<br>        p1 = p1.next;<br>        p2 = p2.next;<br>    }<br>    <span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">detectCycle</span><span class="hljs-params">(ListNode head)</span> </span>{<br>    <span class="hljs-keyword">if</span>(head == <span class="hljs-keyword">null</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br><br>    <span class="hljs-comment">// 找到相遇点</span><br>    ListNode p1 = getIntersect(head);<br>    ListNode p2 = head;<br>    <span class="hljs-keyword">if</span>(p1 == <span class="hljs-keyword">null</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>    <span class="hljs-comment">// 头节点到入环处的距离 和 相遇点行走到 入环处的距离 相等</span><br>    <span class="hljs-keyword">while</span>(p1 != p2){<br>        p1 = p1.next;<br>        p2 = p2.next;<br>    }<br>    <span class="hljs-keyword">return</span> p1;<br>}<br></code></pre></td></tr></tbody></table></figure>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> ListNode <span class="token function">detectCycle</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">==</span> null<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
 
+    <span class="token comment" spellcheck="true">// 找到相遇点</span>
+    ListNode p1 <span class="token operator">=</span> <span class="token function">getIntersect</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ListNode p2 <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>p1 <span class="token operator">==</span> null<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 头节点到入环处的距离 和 相遇点行走到 入环处的距离 相等</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p1 <span class="token operator">!=</span> p2<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        p1 <span class="token operator">=</span> p1<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        p2 <span class="token operator">=</span> p2<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> p1<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<h1 id="模板">3 模板</h1><h2 id="解决链表中的双指针">3.1 解决链表中的双指针</h2><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 判断是否有环</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>slow <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> fast <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> fast<span class="token punctuation">.</span>next <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">// move slow pointer one step each time</span>
+    fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// move fast pointer two steps each time</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>slow <span class="token operator">==</span> fast<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// change this condition to fit specific problem</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
+<span class="token comment" spellcheck="true">// 寻找链表的 第一次相遇节点</span>
+<span class="token keyword">private</span> ListNode <span class="token function">getIntersect</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    ListNode slow <span class="token operator">=</span> head<span class="token punctuation">,</span> fast <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>fast<span class="token operator">!=</span>null <span class="token operator">&amp;&amp;</span> fast<span class="token punctuation">.</span>next<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
 
-
-
-<h1 id="模板">3 模板</h1><h2 id="解决链表中的双指针">3.1 解决链表中的双指针</h2><figure class="highlight java"><table><tbody><tr><td class="code"><pre class=" language-hljs java"><span class="hljs-comment">// 判断是否有环</span><br><span class="hljs-keyword">while</span> (slow != <span class="hljs-keyword">null</span> &amp;&amp; fast != <span class="hljs-keyword">null</span> &amp;&amp; fast.next != <span class="hljs-keyword">null</span>) {<br>    slow = slow.next;           <span class="hljs-comment">// move slow pointer one step each time</span><br>    fast = fast.next.next;      <span class="hljs-comment">// move fast pointer two steps each time</span><br>    <span class="hljs-keyword">if</span> (slow == fast) {         <span class="hljs-comment">// change this condition to fit specific problem</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>    }<br>}<br><br><span class="hljs-comment">// 寻找链表的 第一次相遇节点</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> ListNode <span class="hljs-title">getIntersect</span><span class="hljs-params">(ListNode head)</span> </span>{<br>    ListNode slow = head, fast = head;<br>    <span class="hljs-keyword">while</span> (fast!=<span class="hljs-keyword">null</span> &amp;&amp; fast.next!=<span class="hljs-keyword">null</span>){<br>        slow = slow.next;<br>        fast = fast.next.next;<br><br>        <span class="hljs-keyword">if</span>(slow == fast)<br>            <span class="hljs-keyword">return</span> slow;<br>    }<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-comment">// 判断是否有环</span><br><span class="hljs-keyword">while</span> (slow != <span class="hljs-keyword">null</span> &amp;&amp; fast != <span class="hljs-keyword">null</span> &amp;&amp; fast.next != <span class="hljs-keyword">null</span>) {<br>    slow = slow.next;           <span class="hljs-comment">// move slow pointer one step each time</span><br>    fast = fast.next.next;      <span class="hljs-comment">// move fast pointer two steps each time</span><br>    <span class="hljs-keyword">if</span> (slow == fast) {         <span class="hljs-comment">// change this condition to fit specific problem</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>    }<br>}<br><br><span class="hljs-comment">// 寻找链表的 第一次相遇节点</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> ListNode <span class="hljs-title">getIntersect</span><span class="hljs-params">(ListNode head)</span> </span>{<br>    ListNode slow = head, fast = head;<br>    <span class="hljs-keyword">while</span> (fast!=<span class="hljs-keyword">null</span> &amp;&amp; fast.next!=<span class="hljs-keyword">null</span>){<br>        slow = slow.next;<br>        fast = fast.next.next;<br><br>        <span class="hljs-keyword">if</span>(slow == fast)<br>            <span class="hljs-keyword">return</span> slow;<br>    }<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>}<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="列表反转">3.2 列表反转</h2><figure class="highlight java"><table><tbody><tr><td class="code"><pre class=" language-hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> ListNode <span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode head)</span> </span>{<br>    ListNode prev = <span class="hljs-keyword">null</span>;<br>    ListNode curr = head;<br>    <span class="hljs-keyword">while</span> (curr != <span class="hljs-keyword">null</span>) {<br>        ListNode nextTemp = curr.next;<br>        curr.next = prev;<br>        prev = curr;<br>        curr = nextTemp;<br>    }<br>    <span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> ListNode <span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode head)</span> </span>{<br>    ListNode prev = <span class="hljs-keyword">null</span>;<br>    ListNode curr = head;<br>    <span class="hljs-keyword">while</span> (curr != <span class="hljs-keyword">null</span>) {<br>        ListNode nextTemp = curr.next;<br>        curr.next = prev;<br>        prev = curr;<br>        curr = nextTemp;<br>    }<br>    <span class="hljs-keyword">return</span> prev;<br>}<br></code></pre></td></tr></tbody></table></figure>
-
-
-
+        <span class="token keyword">if</span><span class="token punctuation">(</span>slow <span class="token operator">==</span> fast<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> slow<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<h2 id="列表反转">3.2 列表反转</h2><pre class=" language-java"><code class="language-java"><span class="token keyword">private</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    ListNode prev <span class="token operator">=</span> null<span class="token punctuation">;</span>
+    ListNode curr <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>curr <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        ListNode nextTemp <span class="token operator">=</span> curr<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        curr<span class="token punctuation">.</span>next <span class="token operator">=</span> prev<span class="token punctuation">;</span>
+        prev <span class="token operator">=</span> curr<span class="token punctuation">;</span>
+        curr <span class="token operator">=</span> nextTemp<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> prev<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <h1 id="要善用哑变量，特别是在删除的时候">4 要善用哑变量，特别是在删除的时候</h1><blockquote>
 <p><em>删除链表中等于给定值 val 的所有节点。</em></p>
 </blockquote>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre class=" language-hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">removeElements</span><span class="hljs-params">(ListNode head, <span class="hljs-keyword">int</span> val)</span> </span>{<br><br>    <span class="hljs-comment">// 巧用 哑变量</span><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">        如果头或者前 n 个 都是要删除的变量， 这样操作比较麻烦</span><br><span class="hljs-comment">         */</span><br>    ListNode dummy = <span class="hljs-keyword">new</span> ListNode(-<span class="hljs-number">1</span>);<br>    dummy.next =  head;<br>    ListNode cur = dummy;<br><br>    <span class="hljs-keyword">while</span>(cur.next!=<span class="hljs-keyword">null</span>){<br>        <span class="hljs-keyword">if</span>(cur.next.val == val){<br>            cur.next =  cur.next.next;<br>        }<br>        <span class="hljs-keyword">else</span><br>            cur = cur.next;<br>    }<br>    <span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">removeElements</span><span class="hljs-params">(ListNode head, <span class="hljs-keyword">int</span> val)</span> </span>{<br><br>    <span class="hljs-comment">// 巧用 哑变量</span><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">        如果头或者前 n 个 都是要删除的变量， 这样操作比较麻烦</span><br><span class="hljs-comment">         */</span><br>    ListNode dummy = <span class="hljs-keyword">new</span> ListNode(-<span class="hljs-number">1</span>);<br>    dummy.next =  head;<br>    ListNode cur = dummy;<br><br>    <span class="hljs-keyword">while</span>(cur.next!=<span class="hljs-keyword">null</span>){<br>        <span class="hljs-keyword">if</span>(cur.next.val == val){<br>            cur.next =  cur.next.next;<br>        }<br>        <span class="hljs-keyword">else</span><br>            cur = cur.next;<br>    }<br>    <span class="hljs-keyword">return</span> dummy.next;<br>}<br></code></pre></td></tr></tbody></table></figure>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> ListNode <span class="token function">removeElements</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
 
+    <span class="token comment" spellcheck="true">// 巧用 哑变量</span>
+    <span class="token comment" spellcheck="true">/*
+        如果头或者前 n 个 都是要删除的变量， 这样操作比较麻烦
+         */</span>
+    ListNode dummy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    dummy<span class="token punctuation">.</span>next <span class="token operator">=</span>  head<span class="token punctuation">;</span>
+    ListNode cur <span class="token operator">=</span> dummy<span class="token punctuation">;</span>
 
+    <span class="token keyword">while</span><span class="token punctuation">(</span>cur<span class="token punctuation">.</span>next<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>cur<span class="token punctuation">.</span>next<span class="token punctuation">.</span>val <span class="token operator">==</span> val<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            cur<span class="token punctuation">.</span>next <span class="token operator">=</span>  cur<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span>
+            cur <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> dummy<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <h1 id="递归的总结">5 递归的总结</h1><blockquote>
 <p><em>删除链表中等于给定值 val 的所有节点。</em></p>
 </blockquote>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre class=" language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">solution</span> </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">removeElements</span><span class="hljs-params">(ListNode head, <span class="hljs-keyword">int</span> val)</span> </span>{<br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">        和19题 有异曲同工之妙</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">        1. 递归的结束条件时什么【走到最深处】</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">        2. 子序列去递归【做什么】</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">        3. 递归的返值是什么【向上返回】</span><br><span class="hljs-comment">         */</span><br><br>        <span class="hljs-keyword">if</span>( head == <span class="hljs-keyword">null</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br><br>        head.next = removeElements(head.next, val);<br><br>        <span class="hljs-keyword">if</span>(head.val == val)<br>            <span class="hljs-keyword">return</span> head.next;<br>        <span class="hljs-keyword">return</span> head;<br>        <span class="hljs-comment"><code class="language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">solution</span> </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">removeElements</span><span class="hljs-params">(ListNode head, <span class="hljs-keyword">int</span> val)</span> </span>{<br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">        和19题 有异曲同工之妙</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">        1. 递归的结束条件时什么【走到最深处】</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">        2. 子序列去递归【做什么】</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">        3. 递归的返值是什么【向上返回】</span><br><span class="hljs-comment">         */</span><br><br>        <span class="hljs-keyword">if</span>( head == <span class="hljs-keyword">null</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br><br>        head.next = removeElements(head.next, val);<br><br>        <span class="hljs-keyword">if</span>(head.val == val)<br>            <span class="hljs-keyword">return</span> head.next;<br>        <span class="hljs-keyword">return</span> head;<br>        <span class="hljs-comment">//return head->val == val ? head->next : head;</span><br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">solution</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> ListNode <span class="token function">removeElements</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/*
+        和19题 有异曲同工之妙
+
+        1. 递归的结束条件时什么【走到最深处】
+
+        2. 子序列去递归【做什么】
+
+        3. 递归的返值是什么【向上返回】
+         */</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span> head <span class="token operator">==</span> null<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+
+        head<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">removeElements</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next<span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>val <span class="token operator">==</span> val<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//return head->val == val ? head->next : head;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1324,7 +1424,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;字数:&nbsp;<span
-                class="white-color">2.6k</span>&nbsp;
+                class="white-color">2.7k</span>&nbsp;
             
             
             
