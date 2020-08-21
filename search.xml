@@ -8,7 +8,7 @@
       <link href="/2020/08/21/hexo_matery_record/"/>
       <url>/2020/08/21/hexo_matery_record/</url>
       
-        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>忙了两天终于搭建了自己的博客，win下hexo+github+matery。其中踩坑不少，还要很多地方需要完善、精化。写下这篇有博客以来的第一篇文章以记录后续的改善。</p><h1 id="目录自动编号"><a href="#目录自动编号" class="headerlink" title="目录自动编号"></a>目录自动编号</h1><ol><li>利用了GitHub的插件，win 下载命令如下：</li></ol><pre class="language-bash" data-language="bash"><code class="language-bash">npm install hexo-heading-index --save</code></pre><ol start="2"><li>根目录config文件配置:<pre class="language-bash" data-language="bash"><code class="language-bash">heading_index:enable: trueindex_styles: "{1} {1} {1} {1} {1} {1}"connector: "."global_prefix: ""global_suffix: " "</code></pre><blockquote><p>默认六级标题，具体配置信息可参考：<a href="https://github.com/r12f/hexo-heading-index/blob/master/README.md">hexo-heading-index</a></p></blockquote></li></ol><p>配置成功之后，看起来还不错，效果如下：</p><p>![批注 2020-08-21 195228](C:/Users/swordman/Desktop/批注 2020-08-21 195228.png)</p><p>但是问题来了，这个设置是针对全局的，如果在其他地方也使用了 md标题，就会这样，例如我的友链区：</p><p><img src="https://gitee.com/diuzi/hexoImage/raw/master/img/hexo/%E6%89%B9%E6%B3%A8%202020-08-21%20195807.png" alt="批注 2020-08-21 195807"></p><p><em>折中的解决办法</em>:  </p><blockquote><p>1 只针前几级标题进行编号，其他地方用后几级进行编写<br>2 其他地方用 md 的加粗写法，不利用 标题编号</p></blockquote><p>针对方法1，需要在hexo-heading-index/lib/index.js中作修改：</p><pre class="language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">updateHeadingIndexes</span><span class="token punctuation">(</span><span class="token parameter">options<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">var</span> $ <span class="token operator">=</span> cheerio<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token punctuation">{</span> decodeEntities<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">var</span> headings <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'h1, h2, h3'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 只支队前三级进行编号</span></code></pre><p><strong>#end</strong></p><h1 id="这是3级标题"><a href="#这是3级标题" class="headerlink" title="这是3级标题"></a>这是3级标题</h1><h2 id="这是3-1标题"><a href="#这是3-1标题" class="headerlink" title="这是3.1标题"></a>这是3.1标题</h2><h2 id="这是3-2标题"><a href="#这是3-2标题" class="headerlink" title="这是3.2标题"></a>这是3.2标题</h2><h1 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h1><h2 id="这是4-1标题"><a href="#这是4-1标题" class="headerlink" title="这是4.1标题"></a>这是4.1标题</h2><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>忙了两天终于搭建了自己的博客，win下hexo+github+matery。其中踩坑不少，还要很多地方需要完善、精化。写下这篇有博客以来的第一篇文章以记录后续的改善。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -48,33 +48,6 @@
             <tag> linkedList </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>test</title>
-      <link href="/2020/08/21/test/"/>
-      <url>/2020/08/21/test/</url>
-      
-        <content type="html"><![CDATA[<pre class="language-java" data-language="java"><code class="language-java">class MyCircularQueue  &amp;#123;    /** Initialize your data structure here. Set the size of the queue to be k. */    public MyCircularQueue(int k)  &amp;#123;     &amp;#125;    /** Insert an element into the circular queue. Return true if the operation is successful. */    public boolean enQueue(int value)  &amp;#123;     &amp;#125;    /** Delete an element from the circular queue. Return true if the operation is successful. */    public boolean deQueue()  &amp;#123;     &amp;#125;    /** Get the front item from the queue. */    public int Front()  &amp;#123;     &amp;#125;    /** Get the last item from the queue. */    public int Rear()  &amp;#123;     &amp;#125;    /** Checks whether the circular queue is empty or not. */    public boolean isEmpty()  &amp;#123;     &amp;#125;    /** Checks whether the circular queue is full or not. */    public boolean isFull()  &amp;#123;     &amp;#125; &amp;#125;</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 学习 </category>
-          
-          <category> 语言 </category>
-          
-          <category> 英语 </category>
-          
-          <category> 工作 </category>
-          
-          <category> 工具 </category>
-          
-      </categories>
-      
       
     </entry>
     
