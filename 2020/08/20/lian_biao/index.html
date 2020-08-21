@@ -415,7 +415,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><blockquote>
+                <h1 id="链表">1 链表</h1><blockquote>
 <p><strong><em>插入的时候，单链表/双链表(先接后面)</em></strong><br><strong><em>往后移，前面的先移动，往前移动，后面的先移动。</em></strong></p>
 </blockquote>
 <p>与数组不同，我们无法在常量时间内访问单链表中的随机元素。<br> 如果我们想要获得第 i 个元素，我们必须从头结点逐个遍历。<br>我们按索引来访问元素平均要花费 O(N) 时间，其中 N 是链表的长度。</p>
@@ -426,7 +426,7 @@
 <li><p>删除结点的时间复杂度将是 O(N)。空间复杂度为 O(1)，因为我们只需要常量空间来存储指针。</p>
 </li>
 </ol>
-<h2 id="链表中的双指针"><a href="#链表中的双指针" class="headerlink" title="链表中的双指针"></a>链表中的双指针</h2><blockquote>
+<h2 id="链表中的双指针">1.1 链表中的双指针</h2><blockquote>
 <p>给定一个链表，判断链表中是否有环</p>
 </blockquote>
 <p><strong><em>在链表中使用两个速度不同的指针时会遇到的情况:</em></strong></p>
@@ -465,7 +465,7 @@
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
-<h2 id="循环链表2"><a href="#循环链表2" class="headerlink" title="循环链表2"></a>循环链表2</h2><p><strong><em>给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。</em></strong></p>
+<h2 id="循环链表2">1.2 循环链表2</h2><p><strong><em>给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。</em></strong></p>
 <ol>
 <li>快指针1次走2步，慢指针1次走1步。所以快指针总是走了慢指针两倍的路。</li>
 <li>回顾一下阶段1的过程，设头节点到入环点的路途为 n, 那么慢指针走了入环路途的一半（n/2）时，快指针就到达入环点了(走完n了)。</li>
@@ -500,7 +500,7 @@
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> p1<span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
-<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><h3 id="解决链表中的双指针问题模板"><a href="#解决链表中的双指针问题模板" class="headerlink" title="解决链表中的双指针问题模板"></a>解决链表中的双指针问题模板</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 判断是否有环</span>
+<h2 id="模板">1.3 模板</h2><h3 id="解决链表中的双指针问题模板">1.3.1 解决链表中的双指针问题模板</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 判断是否有环</span>
 <span class="token keyword">while</span> <span class="token punctuation">(</span>slow <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> fast <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> fast<span class="token punctuation">.</span>next <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">// move slow pointer one step each time</span>
     fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// move fast pointer two steps each time</span>
@@ -521,7 +521,7 @@
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> null<span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
-<h3 id="列表反转"><a href="#列表反转" class="headerlink" title="列表反转"></a>列表反转</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">private</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<h3 id="列表反转">1.3.2 列表反转</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">private</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     ListNode prev <span class="token operator">=</span> null<span class="token punctuation">;</span>
     ListNode curr <span class="token operator">=</span> head<span class="token punctuation">;</span>
     <span class="token keyword">while</span> <span class="token punctuation">(</span>curr <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
@@ -533,7 +533,7 @@
     <span class="token keyword">return</span> prev<span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <p>​<br>​    </p>
-<h2 id="要善用哑变量，特别是在删除的时候"><a href="#要善用哑变量，特别是在删除的时候" class="headerlink" title="要善用哑变量，特别是在删除的时候"></a>要善用哑变量，特别是在删除的时候</h2><blockquote>
+<h2 id="要善用哑变量，特别是在删除的时候">1.4 要善用哑变量，特别是在删除的时候</h2><blockquote>
 <p><em>删除链表中等于给定值 val 的所有节点。</em></p>
 </blockquote>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> ListNode <span class="token function">removeElements</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
@@ -555,7 +555,7 @@
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> dummy<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
-<h2 id="递归的总结"><a href="#递归的总结" class="headerlink" title="递归的总结"></a>递归的总结</h2><blockquote>
+<h2 id="递归的总结">1.5 递归的总结</h2><blockquote>
 <p><em>删除链表中等于给定值 val 的所有节点。</em></p>
 </blockquote>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">solution</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
@@ -1193,10 +1193,10 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            链表
+                            1 链表
 插入的时候，单链表/双链表(先接后面)往后移，前面的先移动，往前移动，后面的先移动。
 
-与数组不同，我们无法在常量时间内访问单链表中的随机元素。 如果我们想要获得第 i 个元素，我们必须从头结点逐个遍历。我们按索引来访问元素平均要花费
+与数组不同，我们无法在常量时间内访问单链表中的随机元素。 如果我们想要获得第 i 个元素，我们必须从头结点逐个遍历。我们按索引来访问元素平均要
                         
                     </div>
                     <div class="publish-info">
