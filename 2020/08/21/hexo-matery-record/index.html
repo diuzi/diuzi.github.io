@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo matery record, jdi147">
+    <meta name="keywords" content="hexo-matery record, jdi147">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo matery record | jdi147</title>
+    <title>hexo-matery record | jdi147</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo matery record</h1>
+                    <h1 class="description center-align post-title">hexo-matery record</h1>
                 </div>
             </div>
         </div>
@@ -371,6 +371,10 @@
                                 <span class="chip bg-color">hexo</span>
                             </a>
                         
+                            <a href="/tags/matery/">
+                                <span class="chip bg-color">matery</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -379,8 +383,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/hexo/" class="post-category">
-                                hexo
+                            <a href="/categories/blog/" class="post-category">
+                                blog
                             </a>
                         
                     </div>
@@ -406,14 +410,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>字数:&nbsp;&nbsp;
-                    114
+                    536
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -429,6 +433,56 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="前言">1 前言</h1><p>忙了两天终于搭建了自己的博客，win下hexo+github+matery。其中踩坑不少，还要很多地方需要完善、精化。写下这篇有博客以来的第一篇文章以记录后续的改善。</p>
+<p>先在此记录一下待解决问题：</p>
+<blockquote>
+<ol>
+<li>使用官方推荐的插件代码高亮,{}不能被正确转义, 目前的方法是降 hexo 的版本(4.2没有这个问题),等GitHub的issue solution吧.</li>
+<li>valine 升级1.4.1后在Google中显示问题, Firefox倒是没有.</li>
+<li>目录想设置个多级分类, finding </li>
+<li>写个脚本, 在typora书写中,获取当前时间戳.</li>
+<li>有时间搞个文章加密插件</li>
+<li>针对特定文章关闭评论</li>
+<li>关闭友链区的评论</li>
+<li>logo有时间精化一下</li>
+<li>seo优化，</li>
+<li>百度统计，Google统计</li>
+<li>再多就有点花里胡哨了，就这样</li>
+</ol>
+</blockquote>
+<h1 id="toc显示问题-以及-配置标题自动编号">2 toc显示问题 以及 配置标题自动编号</h1><blockquote>
+<p>发现一级标题不能在toc显示，以为是bug，后来发现主题默认toc开启的是h2,h3,h4, 于是修改为h1, h2, h3.</p>
+</blockquote>
+<p><strong>标题自动编号</strong>: </p>
+<ol>
+<li>安装插件 hexo-heading-index</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">sudo npm install hexo-heading-index --save</code></pre>
+<ol start="2">
+<li>根目录配置：<pre class="language-yml" data-language="yml"><code class="language-yml">heading_index:
+enable: true
+index_styles: "{1} {1} {1} {1} {1} {1}"
+connector: "."
+global_prefix: ""
+global_suffix: " "</code></pre>
+关于具体的配置信息，参考<a target="_blank" rel="noopener" href="https://github.com/r12f/hexo-heading-index">hexo-heading-index </a></li>
+</ol>
+<p>到此，clean, g, d 后，发现目录变成了这样：</p>
+<p><img src="https://gitee.com/diuzi/hexoImage/raw/master/img/hexo/%E6%89%B9%E6%B3%A8%202020-08-21%20220912.png" alt="批注 2020-08-21 220912"></p>
+<p>但是，这个设置时针对全局的，这意味这只要在其他地方使用了层级符号，那么也会带有“数字”，为了避免这个情况，有两种解决办法。</p>
+<blockquote>
+<ol>
+<li>在其他地方不使用层级符号(fh不是)</li>
+<li>设置heading-index 前几级编号，后几级使用肯定不会显示数字。</li>
+</ol>
+</blockquote>
+<p>针对第二种方法，需要修改<code>hexo-heading-index/lib/index.js</code>文件</p>
+<pre class="language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">updateHeadingIndexes</span><span class="token punctuation">(</span><span class="token parameter">options<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> $ <span class="token operator">=</span> cheerio<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token punctuation">{</span> decodeEntities<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> headings <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'h1, h2, h3'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 在这里, 保留几级看个人使用喜好</span></code></pre>
+
+
+
+<p><strong># end</strong></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -472,7 +526,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jdi147.com/2020/08/21/hexo_matery_record/">https://jdi147.com/2020/08/21/hexo_matery_record/</a>
+                    <a href="https://jdi147.com/2020/08/21/hexo-matery-record/">https://jdi147.com/2020/08/21/hexo-matery-record/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -512,6 +566,10 @@
                             
                                 <a href="/tags/hexo/">
                                     <span class="chip bg-color">hexo</span>
+                                </a>
+                            
+                                <a href="/tags/matery/">
+                                    <span class="chip bg-color">matery</span>
                                 </a>
                             
                         </div>
@@ -969,62 +1027,11 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
-            <div class="card">
-                <a href="/2020/08/21/hexo_matery_record/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="hexo matery record">
-                        
-                        <span class="card-title">hexo matery record</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            个人博客精化记录
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/hexo/" class="post-category">
-                                    hexo
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/08/21/lian_biao/">
+                <a href="/2020/08/21/linkedList/">
                     <div class="card-image">
                         
                         
@@ -1040,9 +1047,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1060,6 +1067,60 @@
                     
                     <a href="/tags/linkedList/">
                         <span class="chip bg-color">linkedList</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/08/21/hexo-matery-record/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="hexo-matery record">
+                        
+                        <span class="card-title">hexo-matery record</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            个人博客精化记录
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/blog/" class="post-category">
+                                    blog
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
+                    </a>
+                    
+                    <a href="/tags/matery/">
+                        <span class="chip bg-color">matery</span>
                     </a>
                     
                 </div>
@@ -1257,7 +1318,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;字数:&nbsp;<span
-                class="white-color">1.8k</span>&nbsp;
+                class="white-color">2.2k</span>&nbsp;
             
             
             
