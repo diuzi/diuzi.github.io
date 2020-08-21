@@ -406,7 +406,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>字数:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
@@ -428,7 +428,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><blockquote>
+                <h2 id="链表">0.1 链表</h2><blockquote>
 <p><strong><em>插入的时候，单链表/双链表(先接后面)</em></strong><br><strong><em>往后移，前面的先移动，往前移动，后面的先移动。</em></strong></p>
 </blockquote>
 <p>与数组不同，我们无法在常量时间内访问单链表中的随机元素。<br> 如果我们想要获得第 i 个元素，我们必须从头结点逐个遍历。<br>我们按索引来访问元素平均要花费 O(N) 时间，其中 N 是链表的长度。</p>
@@ -439,7 +439,7 @@
 <li><p>删除结点的时间复杂度将是 O(N)。空间复杂度为 O(1)，因为我们只需要常量空间来存储指针。</p>
 </li>
 </ol>
-<h1 id="链表中的双指针"><a href="#链表中的双指针" class="headerlink" title="链表中的双指针"></a>链表中的双指针</h1><h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><blockquote>
+<h2 id="链表中的双指针">0.2 链表中的双指针</h2><h3 id="循环链表">0.2.1 循环链表</h3><blockquote>
 <p>给定一个链表，判断链表中是否有环</p>
 </blockquote>
 <p><strong><em>在链表中使用两个速度不同的指针时会遇到的情况:</em></strong></p>
@@ -478,7 +478,7 @@
     }
     return false;
 }</code></pre>
-<h2 id="循环链表2"><a href="#循环链表2" class="headerlink" title="循环链表2"></a>循环链表2</h2><p><strong><em>给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。</em></strong></p>
+<h3 id="循环链表2">0.2.2 循环链表2</h3><p><strong><em>给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。</em></strong></p>
 <ol>
 <li>快指针1次走2步，慢指针1次走1步。所以快指针总是走了慢指针两倍的路。</li>
 <li>回顾一下阶段1的过程，设头节点到入环点的路途为 n, 那么慢指针走了入环路途的一半（n/2）时，快指针就到达入环点了(走完n了)。</li>
@@ -518,7 +518,7 @@
 
 
 
-<h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><h2 id="解决链表中的双指针"><a href="#解决链表中的双指针" class="headerlink" title="解决链表中的双指针"></a>解决链表中的双指针</h2><pre class="language-java" data-language="java"><code class="language-java">// 判断是否有环
+<h2 id="模板">0.3 模板</h2><h3 id="解决链表中的双指针">0.3.1 解决链表中的双指针</h3><pre class="language-java" data-language="java"><code class="language-java">// 判断是否有环
 while (slow != null &amp;&amp; fast != null &amp;&amp; fast.next != null) {
     slow = slow.next;           // move slow pointer one step each time
     fast = fast.next.next;      // move fast pointer two steps each time
@@ -539,7 +539,7 @@ private ListNode getIntersect(ListNode head) {
     }
     return null;
 }</code></pre>
-<h2 id="列表反转"><a href="#列表反转" class="headerlink" title="列表反转"></a>列表反转</h2><pre class="language-java" data-language="java"><code class="language-java">private ListNode reverseList(ListNode head) {
+<h3 id="列表反转">0.3.2 列表反转</h3><pre class="language-java" data-language="java"><code class="language-java">private ListNode reverseList(ListNode head) {
     ListNode prev = null;
     ListNode curr = head;
     while (curr != null) {
@@ -553,7 +553,7 @@ private ListNode getIntersect(ListNode head) {
 
 
 
-<h1 id="要善用哑变量，特别是在删除的时候"><a href="#要善用哑变量，特别是在删除的时候" class="headerlink" title="要善用哑变量，特别是在删除的时候"></a>要善用哑变量，特别是在删除的时候</h1><blockquote>
+<h2 id="要善用哑变量，特别是在删除的时候">0.4 要善用哑变量，特别是在删除的时候</h2><blockquote>
 <p><em>删除链表中等于给定值 val 的所有节点。</em></p>
 </blockquote>
 <pre class="language-java" data-language="java"><code class="language-java">public ListNode removeElements(ListNode head, int val) {
@@ -577,7 +577,7 @@ private ListNode getIntersect(ListNode head) {
 }</code></pre>
 
 
-<h1 id="递归的总结"><a href="#递归的总结" class="headerlink" title="递归的总结"></a>递归的总结</h1><blockquote>
+<h2 id="递归的总结">0.5 递归的总结</h2><blockquote>
 <p><em>删除链表中等于给定值 val 的所有节点。</em></p>
 </blockquote>
 <pre class="language-java" data-language="java"><code class="language-java">class solution {
@@ -602,7 +602,8 @@ private ListNode getIntersect(ListNode head) {
         return head;
         //return head-&gt;val == val ? head-&gt;next : head;
     }
-}</code></pre><script>
+}</code></pre>
+<h1 id="这应该不显示">1 这应该不显示</h1><h2 id="这应该是1级">1.1 这应该是1级</h2><h3 id="这应该是2级">1.1.1 这应该是2级</h3><h4 id="这应该是3级"><a href="#这应该是3级" class="headerlink" title="这应该是3级"></a>这应该是3级</h4><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1142,57 +1143,9 @@ private ListNode getIntersect(ListNode head) {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2020/08/21/hexo_matery_record/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="hexo matery record">
-                        
-                        <span class="card-title">hexo matery record</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            个人博客精化记录
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/hexo/" class="post-category">
-                                    hexo
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
                 <a href="/2020/08/21/lian_biao/">
@@ -1232,6 +1185,55 @@ private ListNode getIntersect(ListNode head) {
                     
                     <a href="/tags/linkedList/">
                         <span class="chip bg-color">linkedList</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/08/21/hexo_matery_record/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="hexo matery record">
+                        
+                        <span class="card-title">hexo matery record</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            个人博客精化记录
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/hexo/" class="post-category">
+                                    hexo
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>
