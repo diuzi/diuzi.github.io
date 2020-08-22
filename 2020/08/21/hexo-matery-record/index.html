@@ -423,14 +423,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>字数:&nbsp;&nbsp;
-                    924
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -561,6 +561,85 @@
 <blockquote>
 <p><strong><em>#end</em></strong> 以上内容于 2020-08-22-00-50-07 更新</p>
 </blockquote>
+<h1 id="关闭了友链区的评论功能，将友链区的md页放在了上面。">4 关闭了友链区的评论功能，将友链区的md页放在了上面。</h1><h1 id="文章加密">5 文章加密</h1><p>发现文章已经配置了加密功能，只需要在主题中开启配置即可。</p>
+<p>简单写了个轮子，实用性一般般的样子，bash命令下给文档加密，缺点是需要一次性读文件，当文章特别长时。。。不过这种极端情况很少，折腾试试，直接贴代码 ：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> hashlib
+<span class="token keyword">import</span> sys
+<span class="token keyword">import</span> glob
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> frontmatter
+
+
+<span class="token keyword">def</span> <span class="token function">encrypt_md</span><span class="token punctuation">(</span>post_name<span class="token punctuation">,</span> raw_pwd<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+
+    generate and write hash256 pwd
+    :param post_name:  md filename
+    :param raw_pwd:
+    :return:  null
+    """</span>
+
+    <span class="token keyword">def</span> <span class="token function">gen_pwd</span><span class="token punctuation">(</span>raw_pwd<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+
+        :param raw_pwd:
+        :return:
+        """</span>
+        hash256 <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>sha256<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        hash256<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">(</span>raw_pwd<span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> hash256<span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">w_pwd</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> hash_pwd<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+
+        :param name:
+        :param pwd:
+        :return:
+        """</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">"r+"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            md <span class="token operator">=</span> frontmatter<span class="token punctuation">.</span>load<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+            md<span class="token punctuation">.</span>metadata<span class="token punctuation">[</span><span class="token string">"password"</span><span class="token punctuation">]</span> <span class="token operator">=</span> hash_pwd
+            f<span class="token punctuation">.</span>seek<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>frontmatter<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>md<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span>
+
+    <span class="token triple-quoted-string string">""" 所有文件加密 """</span>
+    <span class="token keyword">if</span> post_name <span class="token operator">==</span> <span class="token string">"all"</span><span class="token punctuation">:</span>
+        dir_name <span class="token operator">=</span> <span class="token string">"../source/_posts/*.md"</span>
+        <span class="token keyword">for</span> filename <span class="token keyword">in</span> glob<span class="token punctuation">.</span>glob<span class="token punctuation">(</span>dir_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            w_pwd<span class="token punctuation">(</span>filename<span class="token punctuation">,</span> gen_pwd<span class="token punctuation">(</span>raw_pwd<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">""" 单个文件加密"""</span>
+        filename <span class="token operator">=</span> <span class="token string">"../source/_posts/"</span> <span class="token operator">+</span> post_name <span class="token operator">+</span> <span class="token string">".md"</span>
+        <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            w_pwd<span class="token punctuation">(</span>filename<span class="token punctuation">,</span> gen_pwd<span class="token punctuation">(</span>raw_pwd<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"filename error\n"</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> len<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">3</span> <span class="token operator">and</span> sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"encrypt.py"</span><span class="token punctuation">:</span>
+        encrypt_md<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"command error\n"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>使用方法：</p>
+<blockquote>
+<p>如果你的根目录下还没有 _my_script_ 文件，那就新建一个，将代码写到该文件夹下，以 <em>encrpt.py</em>  命名，</p>
+</blockquote>
+<ol>
+<li>单个文件加密,在 _my_script_ 目录下开启bash, win下执行命令，其他环境参考</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash"> python encrypt.py postname password</code></pre>
+<ol start="2">
+<li>多个 md 文件加密</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash"> python encrypt.py all password</code></pre>
+<p><strong>其中，<em>postname</em>为要加密的md文件名， <em>password</em> 是要 设置的密码，注意密码不能含有空格。另外，如果还没有 frontmatter 包，需要进行安装。另外，网站填写密码是原生 <em>password</em> , 非md文件中的。</strong></p>
+<p>pip安装命令：</p>
+<pre class=" language-cmd"><code class="language-cmd">pip install python-frontmatter</code></pre>
+<p><strong><em>关于更多的实用 blog 脚本, 可以访问我的GitHub，地址：<a target="_blank" rel="noopener" href="https://github.com/diuzi/blog_script">blog_script</a>, 喜欢的话 star一下，谢谢。</em></strong></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1397,7 +1476,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;字数:&nbsp;<span
-                class="white-color">2.7k</span>&nbsp;
+                class="white-color">3.2k</span>&nbsp;
             
             
             
