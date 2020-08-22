@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://jdi147.com/2020/08/21/hexo-matery-record/</loc>
+    
+    <lastmod>2020-08-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jdi147.com/2020/08/21/test/</loc>
+    
+    <lastmod>2020-08-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jdi147.com/2020/08/21/linkedList/</loc>
+    
+    <lastmod>2020-08-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jdi147.com/contact/index.html</loc>
+    
+    <lastmod>2020-08-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jdi147.com/friends/index.html</loc>
+    
+    <lastmod>2020-08-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jdi147.com/about/index.html</loc>
+    
+    <lastmod>2020-08-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jdi147.com/tags/index.html</loc>
+    
+    <lastmod>2020-08-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jdi147.com/categories/index.html</loc>
+    
+    <lastmod>2020-08-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jdi147.com/404.html</loc>
+    
+    <lastmod>2020-08-19</lastmod>
+    
+  </url>
+  
+
+  <url>
+    <loc>https://jdi147.com/</loc>
+    <lastmod>2020-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://jdi147.com/tags/hexo/</loc>
+    <lastmod>2020-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdi147.com/tags/matery/</loc>
+    <lastmod>2020-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdi147.com/tags/linkedList/</loc>
+    <lastmod>2020-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>https://jdi147.com/categories/blog/</loc>
+    <lastmod>2020-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdi147.com/categories/data-struct/</loc>
+    <lastmod>2020-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>
