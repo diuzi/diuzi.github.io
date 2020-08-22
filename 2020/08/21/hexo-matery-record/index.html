@@ -484,7 +484,7 @@
 <p>但是，这个设置时针对全局的，这意味这只要在其他地方使用了层级符号，那么也会带有“数字”，为了避免这个情况，有两种解决办法。</p>
 <blockquote>
 <ol>
-<li>在其他地方不使用层级符号(fh不是)</li>
+<li>在其他地方不使用层级符号 fh不是</li>
 <li>设置heading-index 前几级编号，后几级使用肯定不会显示数字。</li>
 </ol>
 </blockquote>
@@ -561,7 +561,7 @@
 <blockquote>
 <p><strong><em>#end</em></strong> 以上内容于 2020-08-22-00-50-07 更新</p>
 </blockquote>
-<h1 id="关闭了友链区的评论功能，将友链区的md页放在了上面。">4 关闭了友链区的评论功能，将友链区的md页放在了上面。</h1><h1 id="文章加密">5 文章加密</h1><p>发现文章已经配置了加密功能，只需要在主题中开启配置即可。</p>
+<h1 id="关闭友链区评论，md页放上面。">4 关闭友链区评论，md页放上面。</h1><h1 id="文章加密">5 文章加密</h1><p>发现文章已经配置了加密功能，只需要在主题中开启配置即可。</p>
 <p>简单写了个轮子，实用性一般般的样子，bash命令下给文档加密，缺点是需要一次性读文件，当文章特别长时。。。不过这种极端情况很少，折腾试试，直接贴代码 ：</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> hashlib
 <span class="token keyword">import</span> sys
@@ -626,24 +626,24 @@
 </code></pre>
 <p>使用方法：</p>
 <blockquote>
-<p>如果你的根目录下还没有 _my_script_ 文件，那就新建一个，将代码写到该文件夹下，以 <em>encrpt.py</em>  命名，</p>
+<p>如果你的根目录下还没有 _my_script_ 文件，那就新建一个，将代码写到该文件夹下，encrpt.py  命名，</p>
 </blockquote>
 <ol>
-<li>单个文件加密,在 _my_script_ 目录下开启bash, win下执行命令，其他环境参考</li>
+<li>单个文件加密,在 <code>my_script</code>目录下开启bash, win下执行命令，其他环境参考</li>
 </ol>
 <pre class=" language-bash"><code class="language-bash"> python encrypt.py postname password</code></pre>
 <ol start="2">
 <li>多个 md 文件加密</li>
 </ol>
 <pre class=" language-bash"><code class="language-bash"> python encrypt.py all password</code></pre>
-<p><strong>其中，<em>postname</em>为要加密的md文件名， <em>password</em> 是要 设置的密码，注意密码不能含有空格。另外，如果还没有 frontmatter 包，需要进行安装。另外，网站填写密码是原生 <em>password</em> , 非md文件中的。</strong></p>
+<p><strong>其中，<code>postname</code> 加密的md文件名， <code>password</code> 是要 设置的密码，注意密码不能含有空格。另外，如果还没有 frontmatter 包，需要进行安装。另外，网站填写密码是原生 <code>password</code> , 非md文件中的。</strong></p>
 <p>pip安装命令：</p>
 <pre class=" language-cmd"><code class="language-cmd">pip install python-frontmatter</code></pre>
 <p><strong><em>关于更多的实用 blog 脚本, 可以访问我的GitHub，地址：<a target="_blank" rel="noopener" href="https://github.com/diuzi/blog_script">blog_script</a>, 喜欢的话 star一下，谢谢。</em></strong></p>
 <blockquote>
 <p><strong><em>#end</em></strong> 以上内容于 2020-08-22-10-17-05 更新</p>
 </blockquote>
-<script>
+<h1 id="seo优化">6 seo优化</h1><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1187,9 +1187,61 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/08/21/test/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="test">
+                        
+                        <span class="card-title">test</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            个人博客精化记录
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/blog/" class="post-category">
+                                    blog
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
+                    </a>
+                    
+                    <a href="/tags/matery/">
+                        <span class="chip bg-color">matery</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
                 <a href="/2020/08/21/hexo-matery-record/">
@@ -1233,55 +1285,6 @@
                     
                     <a href="/tags/matery/">
                         <span class="chip bg-color">matery</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/08/21/linkedList/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="linkedList">
-                        
-                        <span class="card-title">linkedList</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            关于链表的学习和总结
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/data-struct/" class="post-category">
-                                    data struct
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/linkedList/">
-                        <span class="chip bg-color">linkedList</span>
                     </a>
                     
                 </div>
