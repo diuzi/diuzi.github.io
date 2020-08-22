@@ -1,4 +1,3 @@
-# hexo robots.txt
 User-agent: *
 Allow: /
 Allow: /posts/
@@ -14,6 +13,3 @@ Disallow: /page/
 Disallow: /tags/
 Disallow: /categories/	
 Disallow: /medias/
-
-Sitemap: https://jdi147.com/sitemap.xml
-Sitemap: https://jdi147.com/baidusitemap.xml
