@@ -245,7 +245,7 @@
 <script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = 'a7cc84168cfe01de7225b6bf685eb5afe13ea6ec3211c5fc4ad75ec37b0631fb';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
