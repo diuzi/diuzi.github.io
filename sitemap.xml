@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jdi147.com/google607584d3bbf68a5f.html</loc>
+    
+    <lastmod>2020-08-22</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jdi147.com/2020/08/21/hexo-matery-record/</loc>
     
     <lastmod>2020-08-22</lastmod>
@@ -74,6 +81,13 @@
 
   
   <url>
+    <loc>https://jdi147.com/tags/linkedList/</loc>
+    <lastmod>2020-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jdi147.com/tags/hexo/</loc>
     <lastmod>2020-08-22</lastmod>
     <changefreq>daily</changefreq>
@@ -87,24 +101,17 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://jdi147.com/tags/linkedList/</loc>
-    <lastmod>2020-08-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   
   <url>
-    <loc>https://jdi147.com/categories/blog/</loc>
+    <loc>https://jdi147.com/categories/data-struct/</loc>
     <lastmod>2020-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jdi147.com/categories/data-struct/</loc>
+    <loc>https://jdi147.com/categories/blog/</loc>
     <lastmod>2020-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
