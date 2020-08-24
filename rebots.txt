@@ -13,3 +13,6 @@ Disallow: /medias/
 Disallow: /page/
 Disallow: /tags/
 Disallow: /categories/
+
+Sitemap: https://jdi147.com/sitemap.xml
+Sitemap: https://jdi147.com/baidusitemap.xml
