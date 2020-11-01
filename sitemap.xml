@@ -74,29 +74,29 @@
 
   <url>
     <loc>https://jdi147.com/</loc>
-    <lastmod>2020-08-24</lastmod>
+    <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
+    <loc>https://jdi147.com/tags/linkedList/</loc>
+    <lastmod>2020-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jdi147.com/tags/hexo/</loc>
-    <lastmod>2020-08-24</lastmod>
+    <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://jdi147.com/tags/matery/</loc>
-    <lastmod>2020-08-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdi147.com/tags/linkedList/</loc>
-    <lastmod>2020-08-24</lastmod>
+    <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -104,15 +104,15 @@
 
   
   <url>
-    <loc>https://jdi147.com/categories/blog/</loc>
-    <lastmod>2020-08-24</lastmod>
+    <loc>https://jdi147.com/categories/data-struct/</loc>
+    <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jdi147.com/categories/data-struct/</loc>
-    <lastmod>2020-08-24</lastmod>
+    <loc>https://jdi147.com/categories/blog/</loc>
+    <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
