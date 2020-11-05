@@ -411,16 +411,11 @@
                 
 
                 
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-05
-                </div>
-                
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>字数:&nbsp;&nbsp;
-                    695
+                    713
                 </div>
                 
 
@@ -432,11 +427,6 @@
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -448,6 +438,7 @@
 <p>输入：intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]<br>输出：[[1,2],[3,10],[12,16]]<br>解释：这是因为新的区间 [4,8] 与 [3,5],[6,7],[8,10]重叠。</p>
 <p>输入：intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]<br>输出：[[1,2],[3,10],[12,16]]<br>解释：这是因为新的区间 [4,8] 与 [3,5],[6,7],[8,10] 重叠。</p>
 </blockquote>
+<p><strong><em>题解</em></strong></p>
 <p>审题：</p>
 <blockquote>
 <ol>
@@ -473,7 +464,7 @@
 <p>遍历source，index=0为[1,2]， [1,2]整体是在[4,8] 左边的(比它小), 将[1,2]加入的res中，res=[[1,2],]</p>
 </blockquote>
 <blockquote>
-<p>index=1为[3,5], [3,5]与[4,8]是有交叉的，根据上面思路中2更新 新元， 新元为[min(3,4), max(5,8)] = [3,8]</p>
+<p>index=1为[3,5], [3,5]与[4,8]是有交叉的，根据上面思路中2更新 新元， 新元为[min (3,4) , max (5,8) ] = [3,8]</p>
 <p>index=2w为[6,7]，与[3,8]有交叉，更新后的新元为 [3,8]</p>
 <p>index=3为[8,10], 与[3,8]有交叉，更新后的新元为 [3,10]</p>
 </blockquote>
@@ -483,17 +474,12 @@
 <blockquote>
 <p>从[12,16]开始到遍历完，将所有的加入到res中， 最终结果为： res=[[1,2],[3,10],[12,16]]</p>
 </blockquote>
+<p>根据上面的思路写出代码：</p>
 <pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 author: jdi146
 contact: jdi147.com@gmail.com
 datetime: 2020/11/4 13:50
 """</span>
-
-<span class="token triple-quoted-string string">'''
-文件说明：
-
-
-'''</span>
 
 <span class="token triple-quoted-string string">"""
 特例：
@@ -534,6 +520,7 @@ datetime: 2020/11/4 13:50
     sol <span class="token operator">=</span> Solution<span class="token punctuation">(</span><span class="token punctuation">)</span>
     sol<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
+<p>原题链接[<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/insert-interval/">57. 插入区间</a>]</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1362,7 +1349,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;字数:&nbsp;<span
-                class="white-color">4.6k</span>&nbsp;
+                class="white-color">4.7k</span>&nbsp;
             
             
             

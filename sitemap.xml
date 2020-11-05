@@ -2,28 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jdi147.com/2020/08/21/linkedList/</loc>
+    <loc>https://jdi147.com/2020/08/21/test/</loc>
     
-    <lastmod>2020-11-04</lastmod>
+    <lastmod>2020-11-05</lastmod>
     
   </url>
   
   <url>
     <loc>https://jdi147.com/2020/11/04/daily-leetCode-2020-1104-57-%E6%8F%92%E5%85%A5%E5%8C%BA%E9%97%B4/</loc>
     
-    <lastmod>2020-11-04</lastmod>
+    <lastmod>2020-11-05</lastmod>
     
   </url>
   
   <url>
     <loc>https://jdi147.com/2020/11/04/daily-leetCode-2020-1103-941-%E6%9C%89%E6%95%88%E7%9A%84%E5%B1%B1%E8%84%89%E6%95%B0%E7%BB%84/</loc>
     
-    <lastmod>2020-11-04</lastmod>
+    <lastmod>2020-11-05</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jdi147.com/2020/08/21/test/</loc>
+    <loc>https://jdi147.com/2020/08/21/linkedList/</loc>
     
     <lastmod>2020-11-04</lastmod>
     
@@ -88,7 +88,7 @@
 
   <url>
     <loc>https://jdi147.com/</loc>
-    <lastmod>2020-11-04</lastmod>
+    <lastmod>2020-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -96,28 +96,28 @@
   
   <url>
     <loc>https://jdi147.com/tags/hexo/</loc>
-    <lastmod>2020-11-04</lastmod>
+    <lastmod>2020-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://jdi147.com/tags/matery/</loc>
-    <lastmod>2020-11-04</lastmod>
+    <lastmod>2020-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://jdi147.com/tags/linkedList/</loc>
-    <lastmod>2020-11-04</lastmod>
+    <lastmod>2020-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://jdi147.com/tags/leetcode/</loc>
-    <lastmod>2020-11-04</lastmod>
+    <lastmod>2020-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -126,21 +126,21 @@
   
   <url>
     <loc>https://jdi147.com/categories/blog/</loc>
-    <lastmod>2020-11-04</lastmod>
+    <lastmod>2020-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://jdi147.com/categories/data-struct/</loc>
-    <lastmod>2020-11-04</lastmod>
+    <lastmod>2020-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://jdi147.com/categories/daily-leetcode/</loc>
-    <lastmod>2020-11-04</lastmod>
+    <lastmod>2020-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
