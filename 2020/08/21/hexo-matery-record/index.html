@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo-matery record, jdi146, blog, diuzi">
+    <meta name="keywords" content="hexo-matery record, jdi146 blog, jdi147 blog, diuzi">
     <meta name="description" content="jdi146  blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -1291,7 +1291,7 @@
 
         var selection = window.getSelection();
         // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('50')) {
+        if (('' + selection).length < Number.parseInt('30')) {
             return;
         }
 
@@ -1373,7 +1373,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h1, h2, h3'
+            headingSelector: 'h1, h2, h3，h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -1385,7 +1385,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h1, h2, h3').each(function () {
+        $('#articleContent').children('h1, h2, h3，h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
