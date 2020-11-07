@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="daily_leetCode_2020_1104_57_插入区间, jdi146 blog, jdi147 blog, diuzi">
+    <meta name="keywords" content="scala的reflect, jdi146 blog, jdi147 blog, diuzi">
     <meta name="description" content="jdi146  blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>daily_leetCode_2020_1104_57_插入区间 | jdi147</title>
+    <title>scala的reflect | jdi147</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/awesome/css/all.css">
@@ -259,12 +259,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">daily_leetCode_2020_1104_57_插入区间</h1>
+                    <h1 class="description center-align post-title">scala的reflect</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode/">
-                                <span class="chip bg-color">leetcode</span>
+                            <a href="/tags/scala%E8%BF%9B%E9%98%B6/">
+                                <span class="chip bg-color">scala进阶</span>
                             </a>
                         
                     </div>
@@ -393,8 +393,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/daily-leetcode/" class="post-category">
-                                daily_leetcode
+                            <a href="/categories/scala/" class="post-category">
+                                scala
                             </a>
                         
                     </div>
@@ -406,7 +406,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-04
+                    2020-11-07
                 </div>
                 
 
@@ -415,14 +415,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>字数:&nbsp;&nbsp;
-                    713
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    7 分
                 </div>
                 
 
@@ -432,95 +432,180 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>题目描述</strong></p>
+                <h2 id="为什么需要reflect">0.1 为什么需要reflect</h2><p>Scala是基于JVM的语言, Scala编译器会将Scala代码编译成JVM字节码, 而JVM编译过程中JVM中的泛型并不会保存。下面这段代码并不会通过</p>
+<pre class=" language-scala"><code class="language-scala"><span class="token keyword">class</span> ScalaDemo<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">def</span> makeTArray<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Array<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> Array<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<p>那么问题来了，假如我们有一种对象可以保存泛型信息，不就解决了吗，那么解决办法来了，这些对象就是<code>ClassTag 、Manifest、ClassManifest、TypeTag</code></p>
+<p><strong>反射作用三部曲</strong>：</p>
 <blockquote>
-<p>给出一个无重叠的 ，按照区间起始端点排序的区间列表。<br>在列表中插入一个新的区间，你需要确保列表中的区间仍然有序且不重叠（如果有必要的话，可以合并区间）。</p>
-<p>输入：intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]<br>输出：[[1,2],[3,10],[12,16]]<br>解释：这是因为新的区间 [4,8] 与 [3,5],[6,7],[8,10]重叠。</p>
-<p>输入：intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]<br>输出：[[1,2],[3,10],[12,16]]<br>解释：这是因为新的区间 [4,8] 与 [3,5],[6,7],[8,10] 重叠。</p>
+<p>捕获对象、泛型类型信息</p>
+<p>根据捕获信息实例化新对象</p>
+<p>通过实例操作对象的属性和方法</p>
 </blockquote>
-<p><strong><em>题解</em></strong></p>
-<p>审题：</p>
+<p>反射的种类：</p>
+<p>1、scala.reflect.runtime.universe 运行时的反射</p>
+<p>2、scala.reflect.marcos.universe编译期的反射</p>
+<h2 id="运行期时反射">0.2 运行期时反射</h2><p>我们重点讲解运行期反射:</p>
+<p>Scala运行时类型信息是保存在TypeTag对象中, 编译器在编译过程中将类型信息保存到TypeTag中, 并将其携带到运行期. 通过TypeTag的 <code>typeTag</code>方法获得需要的Type(如果不是从对象换取Type 而是从class中获得 可以直接用 typeOf[类名])</p>
+<pre class=" language-scala"><code class="language-scala">scala<span class="token operator">></span> <span class="token keyword">val</span> list <span class="token operator">=</span> List<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> list<span class="token operator">:</span> List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> List<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+
+scala<span class="token operator">></span> <span class="token keyword">def</span> getType<span class="token punctuation">[</span>T<span class="token operator">:</span>TypeTag<span class="token punctuation">]</span><span class="token punctuation">(</span>obj<span class="token operator">:</span>T<span class="token punctuation">)</span> <span class="token operator">=</span> typeTag<span class="token punctuation">[</span>T<span class="token punctuation">]</span>
+<span class="token keyword">def</span> getType<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">(</span>obj<span class="token operator">:</span> T<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">implicit</span> evidence$<span class="token number">1</span><span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>TypeTag<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>TypeTag<span class="token punctuation">[</span>T<span class="token punctuation">]</span>
+
+scala<span class="token operator">></span> getType<span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+<span class="token keyword">val</span> res1<span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>TypeTag<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> TypeTag<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+
+scala<span class="token operator">></span> <span class="token keyword">def</span> getType1<span class="token punctuation">[</span>T<span class="token operator">:</span> TypeTag<span class="token punctuation">]</span><span class="token punctuation">(</span>obj<span class="token operator">:</span>T<span class="token punctuation">)</span> <span class="token operator">=</span> typeOf<span class="token punctuation">[</span>T<span class="token punctuation">]</span>
+<span class="token keyword">def</span> getType1<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">(</span>obj<span class="token operator">:</span> T<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">implicit</span> evidence$<span class="token number">1</span><span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>TypeTag<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>Type
+
+scala<span class="token operator">></span> getType1<span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+<span class="token keyword">val</span> res2<span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>Type <span class="token operator">=</span> List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span></code></pre>
+<p>想要获得擦除后的类型信息, 可以使用<code>ClassTag</code></p>
+<pre class=" language-scala"><code class="language-scala">scala<span class="token operator">></span> <span class="token keyword">import</span> scala<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>_
+<span class="token keyword">import</span> scala<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>_
+
+scala<span class="token operator">></span> <span class="token keyword">import</span> scala<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>_
+<span class="token keyword">import</span> scala<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>_
+
+scala<span class="token operator">></span> <span class="token keyword">val</span> tpeTag <span class="token operator">=</span> typeTag<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+tpeTag<span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>TypeTag<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> TypeTag<span class="token punctuation">[</span>scala<span class="token punctuation">.</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+scala<span class="token operator">></span> <span class="token keyword">val</span> clsTag <span class="token operator">=</span> classTag<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+clsTag<span class="token operator">:</span> scala<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>ClassTag<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> scala<span class="token punctuation">.</span>collection<span class="token punctuation">.</span>immutable<span class="token punctuation">.</span>List
+
+scala<span class="token operator">></span> clsTag<span class="token punctuation">.</span>runtimeClass
+res12<span class="token operator">:</span> Class<span class="token punctuation">[</span>_<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">class</span> scala<span class="token punctuation">.</span>collection<span class="token punctuation">.</span>immutable<span class="token punctuation">.</span>List
+
+scala<span class="token operator">></span> classOf<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+res0<span class="token operator">:</span> Class<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">class</span> scala<span class="token punctuation">.</span>collection<span class="token punctuation">.</span>immutable<span class="token punctuation">.</span>List</code></pre>
+<h2 id="反射的实际应用">0.3 反射的实际应用</h2><h3 id="运行时类型实例化">0.3.1 运行时类型实例化</h3><pre class=" language-scala"><code class="language-scala">scala<span class="token operator">></span> <span class="token keyword">case</span> <span class="token keyword">class</span> Fruits<span class="token punctuation">(</span>id<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span>
+defined <span class="token keyword">class</span> Fruits
+
+scala<span class="token operator">></span> <span class="token keyword">import</span> scala<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>_
+<span class="token keyword">import</span> scala<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>_
+
+<span class="token comment" spellcheck="true">// 获得当前JVM中的所有类镜像</span>
+scala<span class="token operator">></span> <span class="token keyword">val</span> rm <span class="token operator">=</span> runtimeMirror<span class="token punctuation">(</span>getClass<span class="token punctuation">.</span>getClassLoader<span class="token punctuation">)</span>
+rm<span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>Mirror <span class="token operator">=</span> JavaMirror <span class="token keyword">with</span> scala<span class="token punctuation">.</span>tools<span class="token punctuation">.</span>nsc<span class="token punctuation">.</span>interpreter<span class="token punctuation">.</span>IMain$TranslatingClassLoader<span class="token annotation punctuation">@566edb2e</span> of <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment" spellcheck="true">// 获得`Fruits`的类型符号, 并指定为class类型</span>
+scala<span class="token operator">></span> <span class="token keyword">val</span> classFruits <span class="token operator">=</span> typeOf<span class="token punctuation">[</span>Fruits<span class="token punctuation">]</span><span class="token punctuation">.</span>typeSymbol<span class="token punctuation">.</span>asClass
+classFruits<span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>ClassSymbol <span class="token operator">=</span> <span class="token keyword">class</span> Fruits
+
+<span class="token comment" spellcheck="true">// 根据上一步的符号, 从所有的类镜像中, 取出`Fruits`的类镜像</span>
+<span class="token keyword">val</span> cm <span class="token operator">=</span> rm<span class="token punctuation">.</span>reflectClass<span class="token punctuation">(</span>classFruits<span class="token punctuation">)</span>
+cm<span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>ClassMirror <span class="token operator">=</span> <span class="token keyword">class</span> mirror <span class="token keyword">for</span> Fruits <span class="token punctuation">(</span>bound to <span class="token keyword">null</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 获得`Fruits`的构造函数, 并指定为asMethod类型</span>
+scala<span class="token operator">></span> <span class="token keyword">val</span> ctor <span class="token operator">=</span> typeOf<span class="token punctuation">[</span>Fruits<span class="token punctuation">]</span><span class="token punctuation">.</span>declaration<span class="token punctuation">(</span>nme<span class="token punctuation">.</span>CONSTRUCTOR<span class="token punctuation">)</span><span class="token punctuation">.</span>asMethod
+ctor<span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>MethodSymbol <span class="token operator">=</span> constructor Fruits
+
+<span class="token comment" spellcheck="true">// 根据上一步的符号, 从`Fruits`的类镜像中, 取出一个方法(也就是构造函数)</span>
+scala<span class="token operator">></span> <span class="token keyword">val</span> ctorm <span class="token operator">=</span> cm<span class="token punctuation">.</span>reflectConstructor<span class="token punctuation">(</span>ctor<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 调用构造函数, 反射生成类实例, 完成</span>
+scala<span class="token operator">></span> ctorm<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"apple"</span><span class="token punctuation">)</span>
+res2<span class="token operator">:</span> <span class="token builtin">Any</span> <span class="token operator">=</span> Fruits<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>apple<span class="token punctuation">)</span></code></pre>
+<h3 id="运行时类成员操作">0.3.2 运行时类成员操作</h3><pre class=" language-scala"><code class="language-scala">scala<span class="token operator">></span> <span class="token keyword">case</span> <span class="token keyword">class</span> Fruits<span class="token punctuation">(</span>id<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span>
+defined <span class="token keyword">class</span> Fruits
+
+scala<span class="token operator">></span> <span class="token keyword">import</span> scala<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>_
+<span class="token keyword">import</span> scala<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>_
+
+<span class="token comment" spellcheck="true">// 获得当前JVM中的所有类镜像</span>
+scala<span class="token operator">></span> <span class="token keyword">val</span> rm <span class="token operator">=</span> runtimeMirror<span class="token punctuation">(</span>getClass<span class="token punctuation">.</span>getClassLoader<span class="token punctuation">)</span>
+rm<span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>Mirror <span class="token operator">=</span> JavaMirror <span class="token keyword">with</span> scala<span class="token punctuation">.</span>tools<span class="token punctuation">.</span>nsc<span class="token punctuation">.</span>interpreter<span class="token punctuation">.</span>IMain$TranslatingClassLoader<span class="token annotation punctuation">@566edb2e</span> of <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment" spellcheck="true">// 生成一个`Fruits`的实例</span>
+scala<span class="token operator">></span> <span class="token keyword">val</span> fruits <span class="token operator">=</span> Fruits<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">)</span>
+fruits<span class="token operator">:</span> Fruits <span class="token operator">=</span> Fruits<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span>banana<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 根据`Fruits`的实例生成实例镜像</span>
+<span class="token keyword">val</span> instm <span class="token operator">=</span> rm<span class="token punctuation">.</span>reflect<span class="token punctuation">(</span>fruits<span class="token punctuation">)</span>
+instm<span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>InstanceMirror <span class="token operator">=</span> instance mirror <span class="token keyword">for</span> Fruits<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span>banana<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 获得`Fruits`中, 名字为name的成员信息, 并指定为asTerm类型符号</span>
+scala<span class="token operator">></span> <span class="token keyword">val</span> nameTermSymbol <span class="token operator">=</span> typeOf<span class="token punctuation">[</span>Fruits<span class="token punctuation">]</span><span class="token punctuation">.</span>declaration<span class="token punctuation">(</span>newTermName<span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>asTerm
+nameTermSymbol<span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>TermSymbol <span class="token operator">=</span> value name
+
+<span class="token comment" spellcheck="true">// 根据上一步的符号, 从`Fruits`的实例镜像中, 取出一个成员的指针</span>
+scala<span class="token operator">></span> <span class="token keyword">val</span> nameFieldMirror <span class="token operator">=</span> instm<span class="token punctuation">.</span>reflectField<span class="token punctuation">(</span>nameTermSymbol<span class="token punctuation">)</span>
+nameFieldMirror<span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>FieldMirror <span class="token operator">=</span> field mirror <span class="token keyword">for</span> <span class="token keyword">private</span><span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">]</span> <span class="token keyword">val</span> name<span class="token operator">:</span> <span class="token builtin">String</span> <span class="token punctuation">(</span>bound to Fruits<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span>banana<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 通过get方法访问成员信息</span>
+scala<span class="token operator">></span> nameFieldMirror<span class="token punctuation">.</span>get
+res3<span class="token operator">:</span> <span class="token builtin">Any</span> <span class="token operator">=</span> banana
+
+<span class="token comment" spellcheck="true">// 通过set方法, 改变成员信息</span>
+scala<span class="token operator">></span> nameFieldMirror<span class="token punctuation">.</span>set<span class="token punctuation">(</span><span class="token string">"apple"</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 再次查询, 发现成员的值已经改变, 即便是val, 在反射中也可以改变</span>
+scala<span class="token operator">></span> nameFieldMirror<span class="token punctuation">.</span>get
+res6<span class="token operator">:</span> <span class="token builtin">Any</span> <span class="token operator">=</span> apple</code></pre>
+<h3 id="运行时方法操作">0.3.3 运行时方法操作</h3><pre class=" language-scala"><code class="language-scala">  <span class="token keyword">def</span> getMethod<span class="token punctuation">(</span>className<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">,</span> methodName<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span><span class="token operator">:</span> universe<span class="token punctuation">.</span>MethodMirror <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 获取实例</span>
+    <span class="token keyword">val</span> classInstance <span class="token operator">=</span> Class<span class="token punctuation">.</span>forName<span class="token punctuation">(</span>className<span class="token punctuation">)</span><span class="token punctuation">.</span>newInstance<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">// 实例镜像</span>
+    <span class="token keyword">val</span> instanceMirror <span class="token operator">=</span> runtimeMirror<span class="token punctuation">.</span>reflect<span class="token punctuation">(</span>classInstance<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">// 全局可访问类符号</span>
+    <span class="token keyword">val</span> classSymbol <span class="token operator">=</span> runtimeMirror<span class="token punctuation">.</span>staticClass<span class="token punctuation">(</span>className<span class="token punctuation">)</span>
+
+      <span class="token comment" spellcheck="true">// 方法符号</span>
+    <span class="token keyword">val</span> methodSymbol <span class="token operator">=</span> classSymbol<span class="token punctuation">.</span>selfType<span class="token punctuation">.</span>decl<span class="token punctuation">(</span>scala<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>TermName<span class="token punctuation">(</span>methodName<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>asMethod
+    <span class="token comment" spellcheck="true">// 反射</span>
+    instanceMirror<span class="token punctuation">.</span>reflectMethod<span class="token punctuation">(</span>methodSymbol<span class="token punctuation">)</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<h2 id="ClassTag-、Manifest、ClassManifest、TypeTag">0.4 ClassTag 、Manifest、ClassManifest、TypeTag</h2><p>scala在2.10用TypeTag替代了Manifest，用ClassTag替代了ClassManifest.原因是在路径依赖类型中，Manifest存在问题</p>
+<p>下面这个实例中 <code>mfun(f1)(b1) == mfun(f2)(b2)</code> 理应是 <code>false</code>,因为b1和b2依赖的外部实例是不一样的。</p>
+<pre class=" language-scala"><code class="language-scala">scala<span class="token operator">></span> <span class="token keyword">class</span> Foo<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token keyword">class</span> Bar<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+defined <span class="token keyword">class</span> Foo
+
+scala<span class="token operator">></span> <span class="token keyword">val</span> f1 <span class="token operator">=</span> <span class="token keyword">new</span> Foo<span class="token punctuation">;</span><span class="token keyword">val</span> b1 <span class="token operator">=</span> <span class="token keyword">new</span> f1<span class="token punctuation">.</span>Bar
+f1<span class="token operator">:</span> Foo <span class="token operator">=</span> Foo<span class="token annotation punctuation">@994f7fd</span>
+b1<span class="token operator">:</span> f1<span class="token punctuation">.</span>Bar <span class="token operator">=</span> Foo$Bar<span class="token annotation punctuation">@1fc0e258</span>
+
+scala<span class="token operator">></span> <span class="token keyword">val</span> f2 <span class="token operator">=</span> <span class="token keyword">new</span> Foo<span class="token punctuation">;</span><span class="token keyword">val</span> b2 <span class="token operator">=</span> <span class="token keyword">new</span> f2<span class="token punctuation">.</span>Bar
+f2<span class="token operator">:</span> Foo <span class="token operator">=</span> Foo<span class="token annotation punctuation">@ecd59a3</span>
+b2<span class="token operator">:</span> f2<span class="token punctuation">.</span>Bar <span class="token operator">=</span> Foo$Bar<span class="token annotation punctuation">@15c882e8</span>
+
+scala<span class="token operator">></span> <span class="token keyword">def</span> mfun<span class="token punctuation">(</span>f<span class="token operator">:</span> Foo<span class="token punctuation">)</span><span class="token punctuation">(</span>b<span class="token operator">:</span> f<span class="token punctuation">.</span>Bar<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">implicit</span> ev<span class="token operator">:</span> Manifest<span class="token punctuation">[</span>f<span class="token punctuation">.</span>Bar<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span> ev
+mfun<span class="token operator">:</span> <span class="token punctuation">(</span>f<span class="token operator">:</span> Foo<span class="token punctuation">)</span><span class="token punctuation">(</span>b<span class="token operator">:</span> f<span class="token punctuation">.</span>Bar<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">implicit</span> ev<span class="token operator">:</span> scala<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>Manifest<span class="token punctuation">[</span>f<span class="token punctuation">.</span>Bar<span class="token punctuation">]</span><span class="token punctuation">)</span>scala<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>Manifest<span class="token punctuation">[</span>f<span class="token punctuation">.</span>Bar<span class="token punctuation">]</span>
+
+scala<span class="token operator">></span> <span class="token keyword">def</span> tfun<span class="token punctuation">(</span>f<span class="token operator">:</span> Foo<span class="token punctuation">)</span><span class="token punctuation">(</span>b<span class="token operator">:</span> f<span class="token punctuation">.</span>Bar<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">implicit</span> ev<span class="token operator">:</span> TypeTag<span class="token punctuation">[</span>f<span class="token punctuation">.</span>Bar<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span> ev
+tfun<span class="token operator">:</span> <span class="token punctuation">(</span>f<span class="token operator">:</span> Foo<span class="token punctuation">)</span><span class="token punctuation">(</span>b<span class="token operator">:</span> f<span class="token punctuation">.</span>Bar<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">implicit</span> ev<span class="token operator">:</span> reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>TypeTag<span class="token punctuation">[</span>f<span class="token punctuation">.</span>Bar<span class="token punctuation">]</span><span class="token punctuation">)</span>reflect<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>universe<span class="token punctuation">.</span>TypeTag<span class="token punctuation">[</span>f<span class="token punctuation">.</span>Bar<span class="token punctuation">]</span>
+
+scala<span class="token operator">></span> mfun<span class="token punctuation">(</span>f1<span class="token punctuation">)</span><span class="token punctuation">(</span>b1<span class="token punctuation">)</span> <span class="token operator">==</span> mfun<span class="token punctuation">(</span>f2<span class="token punctuation">)</span><span class="token punctuation">(</span>b2<span class="token punctuation">)</span>
+res14<span class="token operator">:</span> <span class="token builtin">Boolean</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+
+scala<span class="token operator">></span> tfun<span class="token punctuation">(</span>f1<span class="token punctuation">)</span><span class="token punctuation">(</span>b1<span class="token punctuation">)</span> <span class="token operator">==</span> tfun<span class="token punctuation">(</span>f2<span class="token punctuation">)</span><span class="token punctuation">(</span>b2<span class="token punctuation">)</span>
+res15<span class="token operator">:</span> <span class="token builtin">Boolean</span> <span class="token operator">=</span> <span class="token boolean">false</span></code></pre>
 <blockquote>
+<p><code>ClassManifest</code>是<code>Manifest</code>的一个弱化版本，保存的类型信息不如<code>Manifest</code>多, 而<code>ClassTag</code>是<code>TypeTag</code>的一个弱化版本.在实际应用中，SparkContext大量使用<code>ClassTag</code>保存泛型信息，一般情况下<code>ClassTag</code>就满足我们使用。</p>
+</blockquote>
+<h2 id="总结">0.5 总结</h2><blockquote>
 <ol>
-<li>source序列是有序的，每个 元也是有序的，而且是无重叠的</li>
-<li>一个新元是有序的</li>
+<li><p><code>ClassTag</code> 可以获取擦除后的类型信息，再<code>scala.reflect</code>中，有<code>classTag</code>和<code>classof</code>两个主要方法</p>
+</li>
+<li><p><code>TypeTag</code>获取运行时的类型信息，在<code>scala.reflect.runtime.universe</code>中，有<code>typeTag</code>和<code>typeOf</code>两个主要方法。</p>
+</li>
+<li><p><code>runtimeMirror(getClass.getClassLoader)</code> 反射类<code>reflectClass()</code>, 反射实例<code>reflect()</code>,反射成员变量<code>reflectField()</code>,反射静态类<code>staticClass</code>…</p>
+</li>
+<li><p>不论我们是去操作方法还是实例化对象或是操作属性，流程大致都一致，获取类镜像是必经之路，然后去做反射，最后操作。</p>
+</li>
+<li><p><code>scala.reflect.runtime.universeruntimeMirror(getClass.getClassLoader)</code>获取当前jvm中所有的的运行类镜像。</p>
+</li>
 </ol>
 </blockquote>
-<p>目标： 将新元插入到source，保证有序且不重叠</p>
-<p>关键点：</p>
-<ol>
-<li>处理 有重叠的 </li>
-<li>继续保证有序</li>
+<h2 id="参考">0.6 参考</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/641350">一篇入门 – Scala 反射</a></li>
 </ol>
-<p>思路：</p>
-<ol>
-<li>线性扫描source， 遇到不重叠的且 该排在 新元 前面的，存放到 res</li>
-<li>遇到重叠的进行和并：下界取两者最小的，上界取两者最大的，更新到 新元中，</li>
-<li>将新元保存到res中，将source中剩下的没有遍历的(肯定是排在更新的新元后面的)放到res</li>
-</ol>
-<p>例子详解：</p>
-<p>[[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]]， [4, 8]</p>
-<blockquote>
-<p>遍历source，index=0为[1,2]， [1,2]整体是在[4,8] 左边的(比它小), 将[1,2]加入的res中，res=[[1,2],]</p>
-</blockquote>
-<blockquote>
-<p>index=1为[3,5], [3,5]与[4,8]是有交叉的，根据上面思路中2更新 新元， 新元为[min (3,4) , max (5,8) ] = [3,8]</p>
-<p>index=2w为[6,7]，与[3,8]有交叉，更新后的新元为 [3,8]</p>
-<p>index=3为[8,10], 与[3,8]有交叉，更新后的新元为 [3,10]</p>
-</blockquote>
-<blockquote>
-<p>index=4 时为[12,16], 与[3,10]没有交叉，且需要保存在[3,10]后面，此时将[3,10]加入到res中，res=[[1,2],[3,10]]</p>
-</blockquote>
-<blockquote>
-<p>从[12,16]开始到遍历完，将所有的加入到res中， 最终结果为： res=[[1,2],[3,10],[12,16]]</p>
-</blockquote>
-<p>根据上面的思路写出代码：</p>
-<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
-author: jdi146
-contact: jdi147.com@gmail.com
-datetime: 2020/11/4 13:50
-"""</span>
-
-<span class="token triple-quoted-string string">"""
-特例：
-1. [[]],[1,2]
-2. [[]], [],
-"""</span>
-
-
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">insert</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> intervals<span class="token punctuation">,</span> newInterval<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-        res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        index <span class="token operator">=</span> <span class="token number">0</span>
-        source_len <span class="token operator">=</span> len<span class="token punctuation">(</span>intervals<span class="token punctuation">)</span>
-        <span class="token keyword">while</span> index <span class="token operator">&lt;</span> source_len <span class="token operator">and</span> intervals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> newInterval<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-            res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>intervals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            index <span class="token operator">+=</span> <span class="token number">1</span>
-
-        <span class="token keyword">while</span> index <span class="token operator">&lt;</span> source_len <span class="token operator">and</span> intervals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">>=</span> newInterval<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">and</span> newInterval<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">>=</span> intervals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-            newInterval<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">(</span>intervals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> newInterval<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-            newInterval<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> max<span class="token punctuation">(</span>intervals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> newInterval<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-            index <span class="token operator">+=</span> <span class="token number">1</span>
-
-        res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>newInterval<span class="token punctuation">)</span>
-        <span class="token keyword">while</span> index <span class="token operator">&lt;</span> source_len<span class="token punctuation">:</span>
-            res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>intervals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            index <span class="token operator">+=</span> <span class="token number">1</span>
-
-        <span class="token keyword">return</span> res
-
-    <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        intervals <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
-        newInterval <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>intervals<span class="token punctuation">,</span> newInterval<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    sol <span class="token operator">=</span> Solution<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    sol<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<p>原题链接[<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/insert-interval/">57. 插入区间</a>]</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -564,7 +649,7 @@ datetime: 2020/11/4 13:50
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jdi147.com/2020/11/04/daily-leetCode-2020-1104-57-%E6%8F%92%E5%85%A5%E5%8C%BA%E9%97%B4/">https://jdi147.com/2020/11/04/daily-leetCode-2020-1104-57-%E6%8F%92%E5%85%A5%E5%8C%BA%E9%97%B4/</a>
+                    <a href="https://jdi147.com/2020/11/07/scala%E7%9A%84reflect/">https://jdi147.com/2020/11/07/scala%E7%9A%84reflect/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -602,8 +687,8 @@ datetime: 2020/11/4 13:50
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/leetcode/">
-                                    <span class="chip bg-color">leetcode</span>
+                                <a href="/tags/scala%E8%BF%9B%E9%98%B6/">
+                                    <span class="chip bg-color">scala进阶</span>
                                 </a>
                             
                         </div>
@@ -774,7 +859,7 @@ datetime: 2020/11/4 13:50
         repo: 'diuzi.github.io',
         owner: 'diuzi',
         admin: "diuzi",
-        id: '2020-11-04T23-57-38',
+        id: '2020-11-07T11-00-38',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1065,6 +1150,55 @@ datetime: 2020/11/4 13:50
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2020/11/07/scala%E6%96%AD%E8%A8%80%E5%92%8C%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="scala断言和参数检查">
+                        
+                        <span class="card-title">scala断言和参数检查</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            scala 之require, assert, assume 和 ensuring
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/scala/" class="post-category">
+                                    scala
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/scala%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">scala基础</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2020/11/06/daily-leetCode-2020-1106-1356/">
                     <div class="card-image">
                         
@@ -1081,57 +1215,8 @@ datetime: 2020/11/4 13:50
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-06
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/daily-leetcode/" class="post-category">
-                                    daily_leetcode
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/11/04/daily-leetCode-2020-1103-941-%E6%9C%89%E6%95%88%E7%9A%84%E5%B1%B1%E8%84%89%E6%95%B0%E7%BB%84/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="daily_leetCode_2020_1103_941_有效的山脉数组">
-                        
-                        <span class="card-title">daily_leetCode_2020_1103_941_有效的山脉数组</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            leetcode941 有效的山脉数组
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-06
                             </span>
                         <span class="publish-author">
                             
