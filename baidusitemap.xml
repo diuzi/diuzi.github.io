@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jdi147.com/2020/11/06/daily-leetCode-2020-1106-1356/</loc>
+    <lastmod>2020-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://jdi147.com/2020/11/09/daily-leetCode-2020-1109-973-%E6%9C%80%E6%8E%A5%E8%BF%91%E5%8E%9F%E7%82%B9%E7%9A%84k%E4%B8%AA%E7%82%B9/</loc>
+    <lastmod>2020-11-10</lastmod>
+  </url>
+  <url>
     <loc>https://jdi147.com/2020/11/09/scala%E7%9A%84serializable/</loc>
     <lastmod>2020-11-09</lastmod>
   </url>
@@ -14,10 +22,6 @@
   </url>
   <url>
     <loc>https://jdi147.com/2020/08/21/test/</loc>
-    <lastmod>2020-11-06</lastmod>
-  </url>
-  <url>
-    <loc>https://jdi147.com/2020/11/06/daily-leetCode-2020-1106-1356/</loc>
     <lastmod>2020-11-06</lastmod>
   </url>
   <url>
