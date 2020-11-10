@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="daily_leetCode_2020_1104_57_插入区间, jdi146 blog, jdi147 blog, diuzi">
+    <meta name="keywords" content="daily_leetcode_2020_1108_122_买卖股票的最佳时机, jdi146 blog, jdi147 blog, diuzi">
     <meta name="description" content="jdi146  blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>daily_leetCode_2020_1104_57_插入区间 | jdi147</title>
+    <title>daily_leetcode_2020_1108_122_买卖股票的最佳时机 | jdi147</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/awesome/css/all.css">
@@ -259,12 +259,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">daily_leetCode_2020_1104_57_插入区间</h1>
+                    <h1 class="description center-align post-title">daily_leetcode_2020_1108_122_买卖股票的最佳时机</h1>
                 </div>
             </div>
         </div>
@@ -406,7 +406,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-04
+                    2020-11-10
                 </div>
                 
 
@@ -415,14 +415,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>字数:&nbsp;&nbsp;
-                    713
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -432,95 +432,98 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>题目描述</strong></p>
-<blockquote>
-<p>给出一个无重叠的 ，按照区间起始端点排序的区间列表。<br>在列表中插入一个新的区间，你需要确保列表中的区间仍然有序且不重叠（如果有必要的话，可以合并区间）。</p>
-<p>输入：intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]<br>输出：[[1,2],[3,10],[12,16]]<br>解释：这是因为新的区间 [4,8] 与 [3,5],[6,7],[8,10]重叠。</p>
-<p>输入：intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]<br>输出：[[1,2],[3,10],[12,16]]<br>解释：这是因为新的区间 [4,8] 与 [3,5],[6,7],[8,10] 重叠。</p>
-</blockquote>
-<p><strong><em>题解</em></strong></p>
-<p>审题：</p>
+                <h1 id="题目描述">1 题目描述</h1><p>给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。</p>
+<p>设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。</p>
+<p>注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）</p>
+<pre><code>输入: [7,1,5,3,6,4]
+输出: 7
+解释: 在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。
+&nbsp;    随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6-3 = 3 。
+
+输入: [1,2,3,4,5]
+输出: 4
+解释: 在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。
+&nbsp;    注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。
+&nbsp;    因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。
+
+
+输入: [7,6,4,3,1]
+输出: 0
+解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
+
+提示：
+1 &lt;= prices.length &lt;= 3 * 10 ^ 4
+0 &lt;= prices[i] &lt;= 10 ^ 4</code></pre>
+<h1 id="题目分析">2 题目分析</h1><h2 id="贪心">2.1 贪心</h2><p>因为我们已经有了预知能力，只有明天的价格比今天高，就有利可图，我们就买今天的股票，然后到明天再卖出。则利润为<code>prices[i+1]-prices[i]</code>,到最后一天（以后的那些天价格都没有这一天价格高了，即峰值），我们会将昨天preices[j-1]拥有的股票以今天的价格prices[j]卖出,那么获得的利润<code>prices[j]-prices[j-1]</code>,然后再也不买股票了(<strong>明天的价格比今天高</strong> 这个条件再也不符合了)。</p>
+<p>说人话就是，只要今天的价格比昨天高，你只管往出卖就有钱赚，具体哪一天买卖操那闲心干啥。</p>
+<p>贪心算法在此的本质是吸取正利润区间，也就是今天价格比昨天高的这种小区间</p>
+<pre class=" language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">maxProfit</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> prices<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+
+        <span class="token comment" spellcheck="true"># 贪心</span>
+        res <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>prices<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> prices<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>prices<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span>
+                res <span class="token operator">+=</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> prices<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token keyword">return</span> res</code></pre>
+<h2 id="动态规划">2.2 动态规划</h2><p>动态规划的重点在于寻找状态转移方程，那么我们就第i的状态作以分析。</p>
+<p>在第i天，股票的状态有两种，持有和没有。而每种状态小分两个小情况。我们以dp[i][0]来表示持有的状态时的最大利润，dp[i][1]来表示 不持有的状态时的最大利润。</p>
+<ol>
+<li><p>持有</p>
 <blockquote>
 <ol>
-<li>source序列是有序的，每个 元也是有序的，而且是无重叠的</li>
-<li>一个新元是有序的</li>
+<li><p>昨天就持有，今天没有卖出，</p>
+<p>那么目前的利润是 昨天有的时的最大利润，  dp[i-1][0]</p>
+</li>
+<li><p>昨天没有的，今天新买的</p>
+<p>那么目前的利润是  昨天不持有时的最大利润  - 今天的支出， dp[i-1][1] - prices[i]</p>
+</li>
 </ol>
 </blockquote>
-<p>目标： 将新元插入到source，保证有序且不重叠</p>
-<p>关键点：</p>
+</li>
+<li><p>不持有</p>
+<blockquote>
 <ol>
-<li>处理 有重叠的 </li>
-<li>继续保证有序</li>
+<li><p>昨天就没有，今天也没有买</p>
+<p>那目前的利润就是  昨天没有时的最大利润 ， dp[i-1][1]</p>
+</li>
+<li><p>昨天有的，今天卖掉了</p>
+<p>那目前的利润就是 昨天有时的最大利润 + 今天卖出的 ， dp[i-1][0] + price[i]</p>
+</li>
 </ol>
-<p>思路：</p>
-<ol>
-<li>线性扫描source， 遇到不重叠的且 该排在 新元 前面的，存放到 res</li>
-<li>遇到重叠的进行和并：下界取两者最小的，上界取两者最大的，更新到 新元中，</li>
-<li>将新元保存到res中，将source中剩下的没有遍历的(肯定是排在更新的新元后面的)放到res</li>
+</blockquote>
+</li>
 </ol>
-<p>例子详解：</p>
-<p>[[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]]， [4, 8]</p>
-<blockquote>
-<p>遍历source，index=0为[1,2]， [1,2]整体是在[4,8] 左边的(比它小), 将[1,2]加入的res中，res=[[1,2],]</p>
-</blockquote>
-<blockquote>
-<p>index=1为[3,5], [3,5]与[4,8]是有交叉的，根据上面思路中2更新 新元， 新元为[min (3,4) , max (5,8) ] = [3,8]</p>
-<p>index=2w为[6,7]，与[3,8]有交叉，更新后的新元为 [3,8]</p>
-<p>index=3为[8,10], 与[3,8]有交叉，更新后的新元为 [3,10]</p>
-</blockquote>
-<blockquote>
-<p>index=4 时为[12,16], 与[3,10]没有交叉，且需要保存在[3,10]后面，此时将[3,10]加入到res中，res=[[1,2],[3,10]]</p>
-</blockquote>
-<blockquote>
-<p>从[12,16]开始到遍历完，将所有的加入到res中， 最终结果为： res=[[1,2],[3,10],[12,16]]</p>
-</blockquote>
-<p>根据上面的思路写出代码：</p>
-<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
-author: jdi146
-contact: jdi147.com@gmail.com
-datetime: 2020/11/4 13:50
-"""</span>
+<p>通过上面的分析，我们得到了状态转移方程，那么什么最后的我需要的状态时怎样的，肯定时把手里股票卖干净时的状态。即dp[n][1],</p>
+<p>同时，初始状态应该时怎样的，第1天不持有股票故让dp[0][1]=0, 第一天持有股票则dp[0][0] = - preices[0](即第一天买了股票)</p>
+<p>根据上面的分析，我们可以写处如下的代码：</p>
+<pre class=" language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">dp_method</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> prices<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        prices_len <span class="token operator">=</span> len<span class="token punctuation">(</span>prices<span class="token punctuation">)</span>
+        dp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>prices_len<span class="token punctuation">)</span><span class="token punctuation">]</span>
 
-<span class="token triple-quoted-string string">"""
-特例：
-1. [[]],[1,2]
-2. [[]], [],
-"""</span>
+        <span class="token comment" spellcheck="true"># init dp[0]</span>
+        dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span>prices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0</span>
 
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> prices_len<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> max<span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> max<span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">insert</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> intervals<span class="token punctuation">,</span> newInterval<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> dp<span class="token punctuation">[</span>prices_len <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span></code></pre>
+<p>上面的代码种，我们要开辟一个n*2的list，但是实际上我们用四个变量不断覆盖就能完成更新操作，改进的代码如下。</p>
+<pre class=" language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">dp_method2</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> prices<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-        res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        index <span class="token operator">=</span> <span class="token number">0</span>
-        source_len <span class="token operator">=</span> len<span class="token punctuation">(</span>intervals<span class="token punctuation">)</span>
-        <span class="token keyword">while</span> index <span class="token operator">&lt;</span> source_len <span class="token operator">and</span> intervals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> newInterval<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-            res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>intervals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            index <span class="token operator">+=</span> <span class="token number">1</span>
+        dp_has<span class="token punctuation">,</span> dp_noHas <span class="token operator">=</span> <span class="token operator">-</span>prices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0</span>
 
-        <span class="token keyword">while</span> index <span class="token operator">&lt;</span> source_len <span class="token operator">and</span> intervals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">>=</span> newInterval<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">and</span> newInterval<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">>=</span> intervals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-            newInterval<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">(</span>intervals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> newInterval<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-            newInterval<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> max<span class="token punctuation">(</span>intervals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> newInterval<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-            index <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>prices<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            dp_has_new <span class="token operator">=</span> max<span class="token punctuation">(</span>dp_has<span class="token punctuation">,</span> dp_noHas <span class="token operator">-</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            dp_noHas_new <span class="token operator">=</span> max<span class="token punctuation">(</span>dp_noHas<span class="token punctuation">,</span> dp_has <span class="token operator">+</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-        res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>newInterval<span class="token punctuation">)</span>
-        <span class="token keyword">while</span> index <span class="token operator">&lt;</span> source_len<span class="token punctuation">:</span>
-            res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>intervals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            index <span class="token operator">+=</span> <span class="token number">1</span>
-
-        <span class="token keyword">return</span> res
-
-    <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        intervals <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
-        newInterval <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>intervals<span class="token punctuation">,</span> newInterval<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    sol <span class="token operator">=</span> Solution<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    sol<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<p>原题链接[<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/insert-interval/">57. 插入区间</a>]</p>
+            dp_has <span class="token operator">=</span> dp_has_new
+            dp_noHas <span class="token operator">=</span> dp_noHas_new
+        <span class="token keyword">return</span> dp_noHas</code></pre>
+<h1 id="总结">3 总结</h1><p>动态规划的关键点在于寻找状态方程，例如 最大礼物和，编辑距离等经典题都是如此，改天抽个时间做个总结</p>
+<p>原题链接:</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">122. 买卖股票的最佳时机 II</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -564,7 +567,7 @@ datetime: 2020/11/4 13:50
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jdi147.com/2020/11/04/daily-leetCode-2020-1104-57-%E6%8F%92%E5%85%A5%E5%8C%BA%E9%97%B4/">https://jdi147.com/2020/11/04/daily-leetCode-2020-1104-57-%E6%8F%92%E5%85%A5%E5%8C%BA%E9%97%B4/</a>
+                    <a href="https://jdi147.com/2020/11/10/daily-leetcode-2020-1108-122-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/">https://jdi147.com/2020/11/10/daily-leetcode-2020-1108-122-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -774,7 +777,7 @@ datetime: 2020/11/4 13:50
         repo: 'diuzi.github.io',
         owner: 'diuzi',
         admin: "diuzi",
-        id: '2020-11-04T23-57-38',
+        id: '2020-11-10T09-30-52',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1061,29 +1064,30 @@ datetime: 2020/11/4 13:50
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/06/daily-leetCode-2020-1106-1356/">
+                <a href="/2020/11/10/daily-leetcode-2020-1108-122-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="daily_leetCode_1106_1356">
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="daily_leetcode_2020_1108_122_买卖股票的最佳时机">
                         
-                        <span class="card-title">daily_leetCode_1106_1356</span>
+                        <span class="card-title">daily_leetcode_2020_1108_122_买卖股票的最佳时机</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            leetcode1356 根据数字二进制下 1 的数目排序
+                            leetcode122 买卖股票的最佳时机
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1096,6 +1100,7 @@ datetime: 2020/11/4 13:50
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1114,24 +1119,24 @@ datetime: 2020/11/4 13:50
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/04/daily-leetCode-2020-1103-941-%E6%9C%89%E6%95%88%E7%9A%84%E5%B1%B1%E8%84%89%E6%95%B0%E7%BB%84/">
+                <a href="/2020/11/09/daily-leetCode-2020-1109-973-%E6%9C%80%E6%8E%A5%E8%BF%91%E5%8E%9F%E7%82%B9%E7%9A%84k%E4%B8%AA%E7%82%B9/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="daily_leetCode_2020_1103_941_有效的山脉数组">
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="daily-leetCode-2020-1109-973-最接近原点的k个点">
                         
-                        <span class="card-title">daily_leetCode_2020_1103_941_有效的山脉数组</span>
+                        <span class="card-title">daily-leetCode-2020-1109-973-最接近原点的k个点</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            leetcode941 有效的山脉数组
+                            leetcode973 最接近原点的K个数
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-09
                             </span>
                         <span class="publish-author">
                             
@@ -1144,14 +1149,6 @@ datetime: 2020/11/4 13:50
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
-                    </a>
-                    
                 </div>
                 
             </div>
