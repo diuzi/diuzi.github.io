@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="linkedList, jdi146 blog, jdi147 blog, diuzi">
+    <meta name="keywords" content="daily_leetcode_2020-1111-514_自由之路, jdi146 blog, jdi147 blog, diuzi">
     <meta name="description" content="jdi146  blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>linkedList | jdi147</title>
+    <title>daily_leetcode_2020-1111-514_自由之路 | jdi147</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/awesome/css/all.css">
@@ -246,7 +246,7 @@
 <script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -259,12 +259,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">linkedList</h1>
+                    <h1 class="description center-align post-title">daily_leetcode_2020-1111-514_自由之路</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linkedList/">
-                                <span class="chip bg-color">linkedList</span>
+                            <a href="/tags/leetcode/">
+                                <span class="chip bg-color">leetcode</span>
                             </a>
                         
                     </div>
@@ -393,8 +393,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/data-struct/" class="post-category">
-                                data struct
+                            <a href="/categories/daily-leetcode/" class="post-category">
+                                daily_leetcode
                             </a>
                         
                     </div>
@@ -406,7 +406,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-21
+                    2020-11-11
                 </div>
                 
 
@@ -432,171 +432,136 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="链表">1 链表</h1><blockquote>
-<p><strong><em>插入的时候，单链表/双链表(先接后面)</em></strong><br><strong><em>往后移，前面的先移动，往前移动，后面的先移动。</em></strong></p>
-</blockquote>
-<p>与数组不同，我们无法在常量时间内访问单链表中的随机元素。<br> 如果我们想要获得第 i 个元素，我们必须从头结点逐个遍历。<br>我们按索引来访问元素平均要花费 O(N) 时间，其中 N 是链表的长度。</p>
-<p>尽管它在通过索引访问数据时（与数组相比）具有如此糟糕的性能。<br>插入和删除操作，将了解到链表的好处。</p>
-<ol>
-<li><p>在 O(1) 时间复杂度中将新结点插入到链表中，这非常高效。</p>
-</li>
-<li><p>删除结点的时间复杂度将是 O(N)。空间复杂度为 O(1)，因为我们只需要常量空间来存储指针。</p>
-</li>
-</ol>
-<h1 id="链表中的双指针">2 链表中的双指针</h1><h2 id="循环链表">2.1 循环链表</h2><blockquote>
-<p>给定一个链表，判断链表中是否有环</p>
-</blockquote>
-<p><strong><em>在链表中使用两个速度不同的指针时会遇到的情况:</em></strong></p>
+                <h1 id="题目描述">1 题目描述</h1><p>电子游戏“辐射4”中，任务“通向自由”要求玩家到达名为“Freedom Trail Ring”的金属表盘，并使用表盘拼写特定关键词才能开门。</p>
+<p>给定一个字符串 ring，表示刻在外环上的编码；给定另一个字符串 key，表示需要拼写的关键词。您需要算出能够拼写关键词中所有字符的最少步数。</p>
+<p>最初，ring 的第一个字符与12:00方向对齐。您需要顺时针或逆时针旋转 ring 以使 key 的一个字符在 12:00 方向对齐，然后按下中心按钮，以此逐个拼写完 key 中的所有字符。</p>
+<p>旋转 ring 拼出 key 字符 key[i] 的阶段中：</p>
+<p>您可以将 ring 顺时针或逆时针旋转一个位置，计为1步。旋转的最终目的是将字符串 ring 的一个字符与 12:00 方向对齐，并且这个字符必须等于字符 key[i] 。<br>如果字符 key[i] 已经对齐到12:00方向，您需要按下中心按钮进行拼写，这也将算作 1 步。按完之后，您可以开始拼写 key 的下一个字符（下一阶段）, 直至完成所有拼写。</p>
+<pre><code>输入: ring = "godding", key = "gd"
+输出: 4
+解释:
+ 对于 key 的第一个字符 'g'，已经在正确的位置, 我们只需要1步来拼写这个字符。 
+ 对于 key 的第二个字符 'd'，我们需要逆时针旋转 ring "godding" 2步使它变成 "ddinggo"。
+ 当然, 我们还需要1步进行拼写。
+ 因此最终的输出是 4。
+
+提示
+ring 和&nbsp;key&nbsp;的字符串长度取值范围均为&nbsp;1 至&nbsp;100；
+两个字符串中都只有小写字符，并且均可能存在重复字符；
+字符串&nbsp;key&nbsp;一定可以由字符串 ring&nbsp;旋转拼出。</code></pre>
+<h1 id="题解">2 题解</h1><h2 id="贪心">2.1 贪心</h2><p>首先拿到这个题后，感觉利用贪心算法可以解决，于是乎写出了如下的代码：</p>
+<pre class=" language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">my_method</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ring<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+        ring_len <span class="token operator">=</span> len<span class="token punctuation">(</span>ring<span class="token punctuation">)</span>
+        key_len <span class="token operator">=</span> len<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+        distance <span class="token operator">=</span> ring_len  <span class="token comment" spellcheck="true"># init distance， 记录一轮 转 的最优 距离</span>
+        nearest_index <span class="token operator">=</span> <span class="token number">0</span>  <span class="token comment" spellcheck="true"># 保留一轮 转 中 的 ring中的index</span>
+        res <span class="token operator">=</span> <span class="token number">0</span>
+
+        <span class="token keyword">for</span> k <span class="token keyword">in</span> range<span class="token punctuation">(</span>key_len<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> index <span class="token keyword">in</span> range<span class="token punctuation">(</span>ring_len<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token triple-quoted-string string">""" 找到一个匹配的"""</span>
+                <span class="token keyword">if</span> ring<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">==</span> key<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    <span class="token triple-quoted-string string">""" 选择正向转还是逆向转 """</span>
+                    new_distance <span class="token operator">=</span> min<span class="token punctuation">(</span>index<span class="token punctuation">,</span> ring_len <span class="token operator">-</span> index<span class="token punctuation">)</span>
+
+                    <span class="token triple-quoted-string string">""" 更新distance, nearest_index """</span>
+                    <span class="token keyword">if</span> new_distance <span class="token operator">&lt;</span> distance<span class="token punctuation">:</span>
+                        distance <span class="token operator">=</span> new_distance
+                        nearest_index <span class="token operator">=</span> index
+
+                    <span class="token comment" spellcheck="true"># if new_distance == distance:</span>
+                    <span class="token comment" spellcheck="true">#     return min(self.my_method(ring[nearest_index:] + ring[:nearest_index], key[k:]),</span>
+                    <span class="token comment" spellcheck="true">#                self.my_method(ring[distance:] + ring[:distance], key[k:]))</span>
+
+            <span class="token triple-quoted-string string">""" 按中心按钮 """</span>
+            res <span class="token operator">+=</span> distance <span class="token operator">+</span> <span class="token number">1</span>
+            <span class="token triple-quoted-string string">""" 更新 ring, distance, nearest_index """</span>
+            ring <span class="token operator">=</span> ring<span class="token punctuation">[</span>nearest_index<span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">+</span> ring<span class="token punctuation">[</span><span class="token punctuation">:</span>nearest_index<span class="token punctuation">]</span>
+            distance<span class="token punctuation">,</span> nearest_index <span class="token operator">=</span> ring_len<span class="token punctuation">,</span> <span class="token number">0</span>
+
+        <span class="token keyword">return</span> res</code></pre>
+<p>然后发现wa。后来仔细想了一下，是这么回事：</p>
+<pre><code>"""
+那么问题来了，这是一种基于贪心的算法，每一次保证一轮中是最优的，但是在这一轮进行完后改变了 ring， 影响了后面的每一轮，
+这就要求全局最优。而贪心只保证了局部最优
+
+例如测试用例：ring="nyngl" key="yyynnnnnnlllggg"就没过。
+也就是说当 距离相等的时候该做如何选择， 如 yngln ， 我们下一个 需要匹配的是 n ， 是逆转为nglny 还是正转为nyngl
+"""</code></pre>
+<p>后续又添加了条件，当相等的时候，也就是上面注释的代码，但是递归太深，导致栈溢出。</p>
+<h2 id="递归">2.2 递归</h2><p>下面代码参考leetcode评论区大佬<a target="_blank" rel="noopener" href="https://leetcode-cn.com/u/fa-kuang-de-jie-zi/">发狂的橘子</a>，用到了python的缓存机制。</p>
+<p>这个方法非常巧妙地简化了当ring中存在多个与key某一位匹配时的选择问题。 </p>
 <blockquote>
-<p><strong>如果没有环，快指针将停在链表的末尾。</strong><br><strong>如果有环，快指针最终将与慢指针相遇。</strong></p>
+<p>str.find(s)是找s在str中最靠左边的下标</p>
+<p>str.rfind(s)是找s在str中最靠右边的下标。</p>
 </blockquote>
-<p><strong><em>这两个指针的适当速度应该是多少？</em></strong><br>一个安全的选择是每次移动慢指针一步，而移动快指针两步。每一次迭代，快速指针将额外移动一步。如果环的长度为 M，经过 M 次迭代后，快指针肯定会多绕环一周，并赶上慢指针。</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    ListNode slow <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    ListNode fast <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>slow <span class="token operator">!=</span> fast<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>fast <span class="token operator">==</span> null <span class="token operator">||</span> fast<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
-<p><strong>方法2，哈希表</strong></p>
-<blockquote>
-<p>我们遍历所有结点并在哈希表中存储每个结点的引用（或内存地址）。如果当前结点为空结点 null（即已检测到链表尾部的下一个结点），那么我们已经遍历完整个链表，并且该链表不是环形链表。如果当前结点的引用已经存在于哈希表中，那么返回 true（即该链表为环形链表）</p>
-</blockquote>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    Set<span class="token operator">&lt;</span>ListNode<span class="token operator">></span> nodesSeen <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>head <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>nodesSeen<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            nodesSeen<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        head <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
-<h2 id="循环链表2">2.2 循环链表2</h2><p><strong><em>给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。</em></strong></p>
+<p>不论这一刻有多少个匹配的，但你转的方式只有两种。将此轮所有匹配的（包括一个）简化为两种旋转方式。</p>
+<pre class=" language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">findRotateSteps</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ring<span class="token punctuation">:</span> str<span class="token punctuation">,</span> key<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+
+        key_len <span class="token operator">=</span> len<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+
+        <span class="token keyword">import</span> functools
+        @functools<span class="token punctuation">.</span>lru_cache<span class="token punctuation">(</span>None<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> <span class="token function">helper</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> index <span class="token operator">==</span> key_len<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token number">0</span>
+            left_index <span class="token operator">=</span> s<span class="token punctuation">.</span>find<span class="token punctuation">(</span>key<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            right_index <span class="token operator">=</span> s<span class="token punctuation">.</span>rfind<span class="token punctuation">(</span>key<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            res <span class="token operator">=</span> min<span class="token punctuation">(</span>left_index <span class="token operator">+</span> helper<span class="token punctuation">(</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> s<span class="token punctuation">[</span>left_index<span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">+</span> s<span class="token punctuation">[</span><span class="token punctuation">:</span>left_index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                      len<span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">-</span> right_index <span class="token operator">+</span> helper<span class="token punctuation">(</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> s<span class="token punctuation">[</span>right_index<span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">+</span> s<span class="token punctuation">[</span><span class="token punctuation">:</span>right_index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
+            <span class="token keyword">return</span> res
+
+        <span class="token keyword">return</span> helper<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> ring<span class="token punctuation">)</span></code></pre>
+<h2 id="动态规划">2.3 动态规划</h2><p>用一个n*m的的数组，<code>dp[i][j]</code>表示第key中前i个字符对齐后，ring中第j个字符转到12点位需要的最少次数(逆时针或者顺时针转)，</p>
+<p>现在问题是 当前 <code>i-1</code>个字符对齐时，如何求第i个字符对齐</p>
+<p>在下图中，整条线代表的ring这个序列，在上一轮中，我们在ring中找到了与key中第i-1个匹配的字符<code>index=k</code>（最优），并将它移动了12点位。</p>
+<p><img src="https://gitee.com/diuzi/hexoImage/raw/master/img/spark/image-20201111231208935.png" alt="image-20201111231208935"></p>
+<p><strong>此轮中，我们在ring中找到了一个与key中第i个字符匹配的字符<code>index=j</code>，那么我们只需要计算将<code>index=j</code>转到<code>index=k</code>的的最少次数（index=j在上一轮操作中已经转到了12点位，现在index=j就是12点位), 然后再加上上一次已经计算出来的不就是这次的嘛。</strong></p>
+<p><code>dp[i][j] = dp[i - 1][k] + dist</code>,dist为 <code>index=j</code>转到<code>index=k</code>的的最少次数。</p>
+<p>转的方式无非两种，逆时针和顺时针。</p>
 <ol>
-<li>快指针1次走2步，慢指针1次走1步。所以快指针总是走了慢指针两倍的路。</li>
-<li>回顾一下阶段1的过程，设头节点到入环点的路途为 n, 那么慢指针走了入环路途的一半（n/2）时，快指针就到达入环点了(走完n了)。</li>
-<li>慢指针再继续走完剩下的一般入环路途（剩下的n/2），到达入环点时，快指针已经在环内又走了一个 n 那么远的路了。</li>
-<li>为了方便理解，这里先讨论环很大，大于n的情况（其他情况后文补充）。此时，慢指针正处于入环点，快指针距离入环点的距离为n。环内路，可以用此时快指针的位置分割为两段，前面的 n 部分，和后面的 b 部分。</li>
-<li>此时开始继续快慢指针跑圈，因为已经在环内了，他们其实就是在一条nbnbnbnbnbnbnb（无尽nb路）上跑步。</li>
-<li>慢指针从入环处开始跑b步，距离入环处就剩下了n。此时，快指针则是从距离入环处n步远的位置开始跑了2b步，距离入环处也是剩下了n。他们相遇了，并且距离入环处的距离就是n，n就是头节点到入环点的距离阿!!! 后面的不用说了吧。</li>
+<li>图中红色线段为<code>index=j</code>逆时针转到<code>index=k</code>的距离，为<code> abs(j-k)</code></li>
+<li>图中两段蓝色线段和为<code>index=j</code>顺时针转到<code>index=k</code>的距离，则距离为<code> ring_len-abs(j-k)</code></li>
 </ol>
-<p>环很小的情况，其实跟环很大是一样的，比如你可以理解为将多个小环的循环铺开，虚拟扩展成一个大环来理解。</p>
-<p><img src="https://gitee.com/diuzi/hexoImage/raw/master/imgx/image.png"><br><strong>假设 节点到入环口长为 L，环长为C</strong><br>这里简单讨论C&gt;L的情况, 即一个大环（slow在走到入环口处，fast还没有遍历一遍环)</p>
-<blockquote>
-<ol>
-<li>slow到达入口处时，fast 在环 <strong>L%C</strong>  的位置(slow走L，fast走2L)</li>
-<li>设 slow 继续行进 t 长 时，两者相遇， 此时有方程: <strong><em>(L%C+2t)%C = t%C</em></strong></li>
-<li>则 有 L%C + 2t = t+ nC —&gt; L%C+2t = t+nC</li>
-<li>C&gt;L, 取n=1,得 t = C - L%C, 相遇，L%C=L, 即 目前两者处在环 C-L处，再走 L 长便可到达 入环处<br><strong>当C&lt;L，即小环时，n的取值较大，即两者绕环次数多一些，结果还是不变。</strong></li>
-</ol>
-</blockquote>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> ListNode <span class="token function">detectCycle</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">==</span> null<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+<p>通过上面的分析我们可以得到这样的一个方程</p>
+<p><code>dp[i][j] = dp[i - 1][k] + min(abs(j-k), ring_len-abs(j-k)))</code></p>
+<p><strong>但是在ring中可能存在不止一个满足<code>与key中第i个字符匹配</code>的字符，那就说明我们需要遍历ring（包裹一层循环)，遇到更优的dp[i][j]还要进行更新</strong>。所以，最终的状态转移方程为</p>
+<p><code>dp[i][j] = min(dp[i][j],dp[i - 1][k] + min(abs(j-k), ring_len-abs(j-k))))</code></p>
+<p>代码：</p>
+<pre class=" language-python"><code class="language-python">
+    <span class="token keyword">def</span> <span class="token function">dp_method</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ring<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    <span class="token comment" spellcheck="true">// 找到相遇点</span>
-    ListNode p1 <span class="token operator">=</span> <span class="token function">getIntersect</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    ListNode p2 <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>p1 <span class="token operator">==</span> null<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 头节点到入环处的距离 和 相遇点行走到 入环处的距离 相等</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>p1 <span class="token operator">!=</span> p2<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        p1 <span class="token operator">=</span> p1<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        p2 <span class="token operator">=</span> p2<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> p1<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
-<h1 id="模板">3 模板</h1><h2 id="解决链表中的双指针">3.1 解决链表中的双指针</h2><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 判断是否有环</span>
-<span class="token keyword">while</span> <span class="token punctuation">(</span>slow <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> fast <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> fast<span class="token punctuation">.</span>next <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">// move slow pointer one step each time</span>
-    fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// move fast pointer two steps each time</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>slow <span class="token operator">==</span> fast<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// change this condition to fit specific problem</span>
-        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        ring_len <span class="token operator">=</span> len<span class="token punctuation">(</span>ring<span class="token punctuation">)</span>
+        key_len <span class="token operator">=</span> len<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+        dp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">10001</span><span class="token punctuation">]</span> <span class="token operator">*</span> ring_len <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span>key_len<span class="token punctuation">)</span><span class="token punctuation">]</span>
 
-<span class="token comment" spellcheck="true">// 寻找链表的 第一次相遇节点</span>
-<span class="token keyword">private</span> ListNode <span class="token function">getIntersect</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    ListNode slow <span class="token operator">=</span> head<span class="token punctuation">,</span> fast <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>fast<span class="token operator">!=</span>null <span class="token operator">&amp;&amp;</span> fast<span class="token punctuation">.</span>next<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true"># init dp</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>ring_len<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> ring<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> key<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">(</span>i<span class="token punctuation">,</span> ring_len <span class="token operator">-</span> i<span class="token punctuation">)</span>
 
-        <span class="token keyword">if</span><span class="token punctuation">(</span>slow <span class="token operator">==</span> fast<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> slow<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
-<h2 id="列表反转">3.2 列表反转</h2><pre class=" language-java"><code class="language-java"><span class="token keyword">private</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    ListNode prev <span class="token operator">=</span> null<span class="token punctuation">;</span>
-    ListNode curr <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>curr <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        ListNode nextTemp <span class="token operator">=</span> curr<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        curr<span class="token punctuation">.</span>next <span class="token operator">=</span> prev<span class="token punctuation">;</span>
-        prev <span class="token operator">=</span> curr<span class="token punctuation">;</span>
-        curr <span class="token operator">=</span> nextTemp<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> prev<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
-<h1 id="要善用哑变量，特别是在删除的时候">4 要善用哑变量，特别是在删除的时候</h1><blockquote>
-<p><em>删除链表中等于给定值 val 的所有节点。</em></p>
-</blockquote>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> ListNode <span class="token function">removeElements</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> key_index <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> key_len<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> ring_index <span class="token keyword">in</span> range<span class="token punctuation">(</span>ring_len<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token triple-quoted-string string">""" 此轮找到了一个匹配的 """</span>
+                <span class="token keyword">if</span> ring<span class="token punctuation">[</span>ring_index<span class="token punctuation">]</span> <span class="token operator">==</span> key<span class="token punctuation">[</span>key_index<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    <span class="token triple-quoted-string string">""" 包一层循环，在ring中 更新 dp """</span>
+                    <span class="token keyword">for</span> inner_ring_index <span class="token keyword">in</span> range<span class="token punctuation">(</span>ring_len<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                        <span class="token triple-quoted-string string">""" 在ring中 上一个匹配的 """</span>
+                        <span class="token keyword">if</span> key<span class="token punctuation">[</span>key_index <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> ring<span class="token punctuation">[</span>inner_ring_index<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                            dist <span class="token operator">=</span> abs<span class="token punctuation">(</span>ring_index <span class="token operator">-</span> inner_ring_index<span class="token punctuation">)</span>
+                            dp<span class="token punctuation">[</span>key_index<span class="token punctuation">]</span><span class="token punctuation">[</span>ring_index<span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">(</span>dp<span class="token punctuation">[</span>key_index<span class="token punctuation">]</span><span class="token punctuation">[</span>ring_index<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                                                            min<span class="token punctuation">(</span>dist<span class="token punctuation">,</span> ring_len <span class="token operator">-</span> dist<span class="token punctuation">)</span> <span class="token operator">+</span> dp<span class="token punctuation">[</span>key_index <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>
+                                                                inner_ring_index<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token triple-quoted-string string">""" 
+        最终我们要返回的肯定是key的所有字符都被依次对齐了， 那么结果肯定在dp[key_len-1]中，
+        min一下其实就是筛选出 在ring中匹配 key最后一个字符 的那个字符到12点位的最短距离
+        加上 key_len 的原因是前面我们没有在对齐后按中心按钮，一共需要按key_len 次 """</span>
+        <span class="token keyword">return</span> min<span class="token punctuation">(</span>dp<span class="token punctuation">[</span>key_len <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> key_len
 
-    <span class="token comment" spellcheck="true">// 巧用 哑变量</span>
-    <span class="token comment" spellcheck="true">/*
-        如果头或者前 n 个 都是要删除的变量， 这样操作比较麻烦
-         */</span>
-    ListNode dummy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    dummy<span class="token punctuation">.</span>next <span class="token operator">=</span>  head<span class="token punctuation">;</span>
-    ListNode cur <span class="token operator">=</span> dummy<span class="token punctuation">;</span>
-
-    <span class="token keyword">while</span><span class="token punctuation">(</span>cur<span class="token punctuation">.</span>next<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>cur<span class="token punctuation">.</span>next<span class="token punctuation">.</span>val <span class="token operator">==</span> val<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            cur<span class="token punctuation">.</span>next <span class="token operator">=</span>  cur<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span>
-            cur <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> dummy<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
-<h1 id="递归的总结">5 递归的总结</h1><blockquote>
-<p><em>删除链表中等于给定值 val 的所有节点。</em></p>
-</blockquote>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">solution</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">public</span> ListNode <span class="token function">removeElements</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">/*
-        和19题 有异曲同工之妙
-
-        1. 递归的结束条件时什么【走到最深处】
-
-        2. 子序列去递归【做什么】
-
-        3. 递归的返值是什么【向上返回】
-         */</span>
-
-        <span class="token keyword">if</span><span class="token punctuation">(</span> head <span class="token operator">==</span> null<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-
-        head<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">removeElements</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next<span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>val <span class="token operator">==</span> val<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> head<span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//return head->val == val ? head->next : head;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+</code></pre>
+<h1 id="其他">3 其他</h1><p>原题连接</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/freedom-trail/">514. 自由之路</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -630,7 +595,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">diuzi</a>
+                    <a href="/about" rel="external nofollow noreferrer">jdi146</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -640,7 +605,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jdi147.com/2020/08/21/linkedList/">https://jdi147.com/2020/08/21/linkedList/</a>
+                    <a href="https://jdi147.com/2020/11/11/daily-leetcode-2020-1111-514-%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF/">https://jdi147.com/2020/11/11/daily-leetcode-2020-1111-514-%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -653,7 +618,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">diuzi</a>
+                    <a href="/about" target="_blank">jdi146</a>
                     !
                 </span>
             </div>
@@ -678,8 +643,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linkedList/">
-                                    <span class="chip bg-color">linkedList</span>
+                                <a href="/tags/leetcode/">
+                                    <span class="chip bg-color">leetcode</span>
                                 </a>
                             
                         </div>
@@ -850,7 +815,7 @@
         repo: 'diuzi.github.io',
         owner: 'diuzi',
         admin: "diuzi",
-        id: '2020-08-21T19-28-25',
+        id: '2020-11-11T21-54-54',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1141,31 +1106,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/08/21/test/">
+                <a href="/2020/11/12/daily-leetcode-2020-1112-922-%E6%8C%89%E5%A5%87%E5%81%B6%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%842/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="test">
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="daily_leetcode_2020_1112_922_按奇偶排序数组2">
                         
-                        <span class="card-title">test</span>
+                        <span class="card-title">daily_leetcode_2020_1112_922_按奇偶排序数组2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            this is a test
+                            leetcode922 按奇偶排序数组2
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-12
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/blog/" class="post-category">
-                                    blog
+                            <a href="/categories/daily-leetcode/" class="post-category">
+                                    daily_leetcode
                                 </a>
                             
                             
@@ -1175,12 +1140,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
-                    <a href="/tags/matery/">
-                        <span class="chip bg-color">matery</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
                     </a>
                     
                 </div>
@@ -1191,46 +1152,45 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/21/linkedList/">
+                <a href="/2020/11/10/daily-leetcode-2020-1105-127-%E5%8D%95%E8%AF%8D%E6%8E%A5%E9%BE%99/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="linkedList">
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="daily_leetcode_2020_1105_127_单词接龙">
                         
-                        <span class="card-title">linkedList</span>
+                        <span class="card-title">daily_leetcode_2020_1105_127_单词接龙</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            关于链表的学习和总结
+                            leetcode127 单词接龙
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/data-struct/" class="post-category">
-                                    data struct
+                            <a href="/categories/daily-leetcode/" class="post-category">
+                                    daily_leetcode
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linkedList/">
-                        <span class="chip bg-color">linkedList</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
                     </a>
                     
                 </div>
