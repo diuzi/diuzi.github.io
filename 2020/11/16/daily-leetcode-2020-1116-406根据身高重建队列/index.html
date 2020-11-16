@@ -415,7 +415,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>字数:&nbsp;&nbsp;
-                    416
+                    445
                 </div>
                 
 
@@ -440,7 +440,7 @@
 [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]</code></pre>
 <h1 id="题解">2 题解</h1><p>将队列按h降序、k升序排序，然后做插入操作：</p>
 <p>对于(hi,ki),将它插入下标位ki的位置即可。</p>
-<p>这样做的目的就是: 按高低进行排序，高个子在前面，矮个子在后面，对于矮个子(hi,ki)，插到ki位置，就表示前面有ki个比它高的(这便是题目要求的)</p>
+<p>这样做的目的就是: 按高低进行排序，高个子在前面，矮个子在后面，对于矮个子(hi,ki)，插到ki位置，就表示前面有ki个比它高的\(这便是题目要求的)</p>
 <p>示例：</p>
 <pre><code>对于输入 [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]排序后:[7,0], [7,1], [6,1], [5,0], [5,2], [4,4]
 
@@ -451,6 +451,9 @@
 [5,0], res = [[5,0], [7,0], [6,1], [7,1]]
 [5,2], res = [[5,0], [7,0], [5,2], [6,1], [7,1]]
 [4,4], res = [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]</code></pre>
+<ol>
+<li><strong>高个子站好了，矮个子往高个子里面插，矮个子的k影响不到高个子的k</strong></li>
+</ol>
 <h1 id="代码">3 代码</h1><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">reconstructQueue</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> people<span class="token punctuation">)</span><span class="token punctuation">:</span>
         people<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token operator">-</span>x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
