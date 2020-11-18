@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Levenshtein, jdi146 blog, jdi147 blog, diuzi">
+    <meta name="keywords" content="daily_leetcode_2020_1118_134_加油站, jdi146 blog, jdi147 blog, diuzi">
     <meta name="description" content="jdi146  blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Levenshtein | jdi147</title>
+    <title>daily_leetcode_2020_1118_134_加油站 | jdi147</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/awesome/css/all.css">
@@ -259,12 +259,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Levenshtein</h1>
+                    <h1 class="description center-align post-title">daily_leetcode_2020_1118_134_加油站</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                                <span class="chip bg-color">动态规划</span>
+                            <a href="/tags/leetcode/">
+                                <span class="chip bg-color">leetcode</span>
                             </a>
                         
                     </div>
@@ -393,8 +393,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/daily-leetcode/" class="post-category">
+                                daily_leetcode
                             </a>
                         
                     </div>
@@ -406,7 +406,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-12
+                    2020-11-18
                 </div>
                 
 
@@ -415,14 +415,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>字数:&nbsp;&nbsp;
-                    1.9k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    5 分
                 </div>
                 
 
@@ -432,152 +432,109 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="简介">1 简介</h1><p>编辑距离,也叫莱文斯坦距离(Levenshtein),是针对二个字符串例如英文字的差异程度的量化量测，量测方式是看至少需要多少次的处理才能将一个字符串变成另一个字符串。</p>
-<p>三种转换方式：</p>
-<ol>
-<li>插入一个字符</li>
-<li>删除一个字符</li>
-<li>替换一个字符</li>
-</ol>
-<h1 id="分析">2 分析</h1><p>对于两个字符串str1和str2，一共有六种操作：</p>
-<ol>
-<li>对str1 插入一个字符，对str2删除一个字符</li>
-<li>对str1删除一个字符，对str2插入一个字符</li>
-<li>对str1替换一个字符，对str2替换一个字符</li>
-</ol>
-<p><em>实际上只有三种操作</em>  不难看出上述六种操作种，成对出现的操作结果是一样的，只需要选一个就可以，例如1中，假设str1位hllo,str2为hello,则对str1插入e变为hello与str2删除e变为hllo是等价的，其他两种情况类似。</p>
-<p>总结下来就是：</p>
-<ol>
-<li>对str1 插入一个字符</li>
-<li>对str2插入一个字符</li>
-<li>修改str1的一个字符</li>
-</ol>
-<h1 id="转移方程">3 转移方程</h1><p>假设我们现在知道了str1的字串sub_str1 hll 到 str2的字串 sub_str2 he的编辑距离, 那么</p>
-<ol>
-<li>假设我们经过k次操作后sub_str1 变为了h, sub_str2为 he, 那么这时只需经过一步操作 <code>sub_str1加一个e</code>就可以将两个变为相同的字符串</li>
-<li>假设我们经过k次操作后sub_str1变为了hle, sub_str2为he，那么这时只需经过一步操作 <code>sub_str2中间插入l</code>就可以使得两个字符相同。</li>
-<li>假设我们经过k次操作后sub_str1变为了hl，sub_str2为he , 那么这时只需一步操作<code>替换sub_str1的l为e</code>就可以使得两个字符相同</li>
-</ol>
-<p>从这里我们可以看出经过次操作，下一步的编辑距离和上一次的相关，不管是对str1插入、str2插入还是str1替换，在多一步操作便可以得到这一次的状态。</p>
-<p>好了，既然是和上一步的状态有关，那么我们该考虑动态规划了。</p>
-<p>设 <code>D[i][j]</code> 表示 str1 的前 <code>i</code> 个字母和 str2 的前 <code>j</code> 个字母之间的编辑距离。</p>
-<p><strong>下面是重点</strong></p>
-<p>对于<code>D[i][j]</code>,变为它的方式无非就三种：</p>
-<ol>
-<li><p>由str1插入一个字符得到。那么此时应该是<code>D[i][j-1]</code>【我们现在匹配的是str2中第j个，前面我们已经匹配好它的前j-1个，即<code>D[i][j-1]</code>,现在在给str1插入一个字符，使得和str2的第j个相等，故<code>D[i][j] = D[i][j-1]+1)</code>】</p>
-</li>
-<li><p>由str2插入一个字符得到。那么此时应该是<code>D[i-1][j]</code>【我们现在匹配的是str1中第i个，前面我们已经匹配好它的前i-1个，即<code>D[i-1][j]</code>,现在在给str2插入一个字符，使得和str1的第i个相等，故<code>D[i][j] = D[i-1][j]+1)</code>】</p>
-</li>
-<li><p>由str1修改一个字符得到。那么此时 应该是<code>D[i-1][j-1]</code>【现在问题是str1前i-1个和str2前j-1个匹配好了，即<code>D[i-1][j-1]</code>, 但是呢现在的问题是str1第i个和str2第j个字符不相等。怎么办，修改str1第i个为str2第j个不就好了。故<code>D[i][j] = D[i-1][j-1]+1)</code>】。但是呢str1第i个字符可能和str2第j个字符相等，那么这时<code>D[i][j] = D[i-1][j-1])</code></p>
-</li>
-</ol>
-<p>也就是，<code>D[i][j]</code>可能来自三中状态，那既然是求最优，min一下就好了。</p>
-<p><code>D[i][j] = min(D[i][j−1]+1,D[i−1][j]+1,D[i−1][j−1]) + (1 if str[i]==str[j])</code></p>
-<h1 id="源码">4 源码</h1><h2 id="dp1">4.1 dp1</h2><pre class=" language-python"><code class="language-python">
-<span class="token keyword">def</span> <span class="token function">levenshtein</span><span class="token punctuation">(</span>str1<span class="token punctuation">,</span> str2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""
+                <h1 id="题目描述">1 题目描述</h1><p>在一条环路上有 N 个加油站，其中第 i 个加油站有汽油 gas[i] 升。</p>
+<p>你有一辆油箱容量无限的的汽车，从第 i 个加油站开往第 i+1 个加油站需要消耗汽油 cost[i] 升。你从其中的一个加油站出发，开始时油箱为空。</p>
+<p>如果你可以绕环路行驶一周，则返回出发时加油站的编号，否则返回 -1。</p>
+<ul>
+<li>如果题目有解，该答案即为唯一答案。</li>
+<li>输入数组均为非空数组，且长度相同。</li>
+<li>输入数组中的元素均为非负数。</li>
+</ul>
+<pre><code>输入: 
+gas  = [1,2,3,4,5]
+cost = [3,4,5,1,2]
 
-    计算 str1 与 str2 的 levenshtein distance
-    :param str1: str
-    :param str2: str
-    :return:  a number, int
-    """</span>
+输出: 3
 
-    str1_len <span class="token operator">=</span> len<span class="token punctuation">(</span>str1<span class="token punctuation">)</span>
-    str2_len <span class="token operator">=</span> len<span class="token punctuation">(</span>str2<span class="token punctuation">)</span>
+解释:
+从 3 号加油站(索引为 3 处)出发，可获得 4 升汽油。此时油箱有 = 0 + 4 = 4 升汽油
+开往 4 号加油站，此时油箱有 4 - 1 + 5 = 8 升汽油
+开往 0 号加油站，此时油箱有 8 - 2 + 1 = 7 升汽油
+开往 1 号加油站，此时油箱有 7 - 3 + 2 = 6 升汽油
+开往 2 号加油站，此时油箱有 6 - 4 + 3 = 5 升汽油
+开往 3 号加油站，你需要消耗 5 升汽油，正好足够你返回到 3 号加油站。
+因此，3 可为起始索引。
 
-    <span class="token triple-quoted-string string">""" 有一个str 为空 """</span>
-    <span class="token keyword">if</span> str1_len <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">or</span> str2_len <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> str1_len <span class="token operator">+</span> str2_len
+输入: 
+gas  = [2,3,4]
+cost = [3,4,3]
 
-    dp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>str2_len<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span>str1_len<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+输出: -1
 
-    <span class="token triple-quoted-string string">""" init dp """</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>str1_len<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> i
-    <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>str2_len<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> j
-
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> str1_len<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> str2_len<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            str1_add <span class="token operator">=</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span>
-            str2_add <span class="token operator">=</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span>
-            str1_rpc <span class="token operator">=</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token keyword">if</span> str1<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">!=</span> str2<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">else</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span>
-
-            dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">(</span>str1_add<span class="token punctuation">,</span> str2_add<span class="token punctuation">,</span> str1_rpc<span class="token punctuation">)</span>
-
-    <span class="token keyword">return</span> dp<span class="token punctuation">[</span>str1_len<span class="token punctuation">]</span><span class="token punctuation">[</span>str2_len<span class="token punctuation">]</span>
+解释:
+你不能从 0 号或 1 号加油站出发，因为没有足够的汽油可以让你行驶到下一个加油站。
+我们从 2 号加油站出发，可以获得 4 升汽油。 此时油箱有 = 0 + 4 = 4 升汽油
+开往 0 号加油站，此时油箱有 4 - 3 + 2 = 3 升汽油
+开往 1 号加油站，此时油箱有 3 - 3 + 3 = 3 升汽油
+你无法返回 2 号加油站，因为返程需要消耗 4 升汽油，但是你的油箱只有 3 升汽油。
+因此，无论怎样，你都不可能绕环路行驶一周。
 </code></pre>
-<h2 id="dp2">4.2 dp2</h2><p><code>D[i][j] = min(D[i][j−1]+1,D[i−1][j]+1,D[i−1][j−1]) + (1 if str[i]==str[j])</code></p>
-<p>从状态转移方程中可以看出，<code>D[i][j]</code>只和三个量有关，但是我们开辟了一个n*m的list, 那么问题来了，可以在空间上优化吗？解决办法来了，我们只需开辟一个m维的list的就可以了，来表示原先二维数组中的列的个数，即存放一行的值。在迭代的过程中，一行一行计算，利用这一次算出来的数据，将数组覆盖掉，即将这一行的结果存放进数组，然后计算下一行，以此类推，直到最后一行。</p>
-<p>计算当前 d[j]是，实际上d[j]前面存放的相当于原先二维数组中中的<code>d[i][0],d[i][1],...,d[i][j-1]</code>,从d[j]到d[m-1]存放的是</p>
-<p><code>d[i-1][j],d[i-1][j+1],...,d[i-1],d[m-1]</code>,只是其左上的元素没有记录下来，那么我们用一个变量来保存它就可以了。</p>
-<p>画图解释起来可能比较好，但比较麻烦，如果你还没有听懂，那么我建议你画个图就秒懂。</p>
-<p>具体代码如下：</p>
-<pre class=" language-python"><code class="language-python">
-<span class="token keyword">def</span> <span class="token function">levenshtein2</span><span class="token punctuation">(</span>str1<span class="token punctuation">,</span> str2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""
+<h1 id="代码">2 代码</h1><h2 id="常规思路">2.1 常规思路</h2><p>我们用一个两层循环，第一层遍历每个加油站，对于当前加油站j,进行第二层循环，判断其能否行的通，注释已经很详细了，这里就不展开细讲了。</p>
+<pre class=" language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">canCompleteCircuit</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> gas<span class="token punctuation">,</span> cost<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
 
-    计算 str1 与 str2 的 levenshtein distance
-    :param str1: str
-    :param str2: str
-    :return:  a number, int
-    """</span>
-    str1_len <span class="token operator">=</span> len<span class="token punctuation">(</span>str1<span class="token punctuation">)</span>
-    str2_len <span class="token operator">=</span> len<span class="token punctuation">(</span>str2<span class="token punctuation">)</span>
+        gas_len <span class="token operator">=</span> len<span class="token punctuation">(</span>gas<span class="token punctuation">)</span>
 
-    <span class="token triple-quoted-string string">""" 有一个str 为空 """</span>
-    <span class="token keyword">if</span> str1_len <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">or</span> str2_len <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> str1_len <span class="token operator">+</span> str2_len
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>gas_len<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    dp <span class="token operator">=</span> list<span class="token punctuation">(</span>range<span class="token punctuation">(</span>str2_len <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token triple-quoted-string string">""" not run """</span>
+            <span class="token keyword">if</span> gas<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> cost<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token keyword">continue</span>
 
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>str1_len<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        str1_rpc <span class="token operator">=</span> dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span>
-        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token operator">+</span> str2_len<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> str1_rpc <span class="token operator">=</span> min<span class="token punctuation">(</span>dp<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> str1_rpc <span class="token operator">+</span> <span class="token number">1</span> <span class="token keyword">if</span> str1<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> str2<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">else</span> str1_rpc<span class="token punctuation">)</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>
-                j<span class="token punctuation">]</span>
+            dp <span class="token operator">=</span> gas<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> cost<span class="token punctuation">[</span>i<span class="token punctuation">]</span>    <span class="token comment" spellcheck="true"># jdi147.com 记录当前油的剩余量</span>
+            idx<span class="token punctuation">,</span> j <span class="token operator">=</span> i<span class="token punctuation">,</span> i  <span class="token comment" spellcheck="true"># jdi147.com； idx 记录起点</span>
 
-    <span class="token keyword">return</span> dp<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-</code></pre>
-<h2 id="dp3">4.3 dp3</h2><p>根据dp3我们知道了，可以节约空间，那么问题来了，可不可以进一步呢，答案是肯定的。</p>
-<p>例如我们现在有str1长度为2，str2长度为10000,那么按照dp2的代码，我们需要开辟一个10001的数组(python中为list), 那么如果我们交换一下str1和str2不就好了，开辟一个长度为3 的数组就可以了。同时时间复杂是不变的，都是两层循环，复杂度都是n*m.</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">levenshtein3</span><span class="token punctuation">(</span>str1<span class="token punctuation">,</span> str2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> len<span class="token punctuation">(</span>str1<span class="token punctuation">)</span> <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>str2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        str1<span class="token punctuation">,</span> str2 <span class="token operator">=</span> str2<span class="token punctuation">,</span> str1
+            <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
 
-    <span class="token keyword">return</span> levenshtein2<span class="token punctuation">(</span>str1<span class="token punctuation">,</span> str2<span class="token punctuation">)</span></code></pre>
-<pre><code>str1 = "1f"
-str2 = "execution"</code></pre>
-<p>得到的结果如下：</p>
-<p><img src="https://gitee.com/diuzi/hexoImage/raw/master/img/spark/image-20201113091659223.png" alt="image-20201113091659223"></p>
-<h1 id="文本相似度">5 文本相似度</h1><p>编辑距离算法被数据科学家广泛应用，是用作机器翻译和语音识别评价标准的基本算法</p>
-<p>公式如下；</p>
-<p><img src="https://gitee.com/diuzi/hexoImage/raw/master/img/spark/image-20201113092248470.png" alt="image-20201113092248470"></p>
-<p>ED(A,B)表示的是A，B两个句子之间的编辑距离。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">similarity_levenshtein</span><span class="token punctuation">(</span>str1<span class="token punctuation">,</span> str2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""
+                <span class="token triple-quoted-string string">""" 预估当前油量能否到下一站 """</span>
+                j <span class="token operator">=</span> <span class="token punctuation">(</span>j <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">+</span> gas_len<span class="token punctuation">)</span> <span class="token operator">%</span> gas_len
+                dp <span class="token operator">+=</span> gas<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+                <span class="token keyword">if</span> dp <span class="token operator">&lt;</span> cost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    <span class="token keyword">break</span>
 
-    利用 levenshtein 距离计算两个句子相似度
-    :param str1:
-    :param str2:
-    :return:  a double, 0-1
-    """</span>
-    max_len <span class="token operator">=</span> max<span class="token punctuation">(</span>len<span class="token punctuation">(</span>str1<span class="token punctuation">)</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>str2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token triple-quoted-string string">""" 走到起点了， """</span>
+                <span class="token keyword">if</span> j <span class="token operator">==</span> idx<span class="token punctuation">:</span>
+                    <span class="token keyword">return</span> idx
 
-    <span class="token keyword">return</span> <span class="token number">1</span> <span class="token operator">-</span> levenshtein3<span class="token punctuation">(</span>str1<span class="token punctuation">,</span> str2<span class="token punctuation">)</span> <span class="token operator">/</span> max_len</code></pre>
+                <span class="token triple-quoted-string string">""" 走下一站 """</span>
+                dp <span class="token operator">-=</span> cost<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span></code></pre>
+<h2 id="一次遍历">2.2 一次遍历</h2><p>此代码参考评论区陈允怀大佬代码。</p>
+<p>根据大佬的笔记和自己的理解尽量直白地说一下这种思路。</p>
+<p>从宏观上来讲(不考虑从那个点开始的情况下,假设只有起点到终点，看车的油能否到终点), 我们只需计算 所有加油站油的和 与 所有路程消耗油的和 的差<code>rest_sum</code>，只要这个差大于等于0，那么就说这个圈可以走下来。你可能觉得这不现实，可能某个站油多，某个站油少，中间某个点走不下去。</p>
+<p>那这样，走不下去的这个点我跳过，从下一个点开始<code>重新走</code>, 即重新选起点，<strong>按这样的思路只需一次遍历</strong></p>
+<p>那么问题又来了，你是不是觉得你选后面的点作为起点，你一次遍历完结束，根本没有考虑<code>走到数组末尾需要从头开始判断,直到回到这个点</code>, </p>
+<p>事实上这时只需判断<code>rest_sum</code>的值。</p>
+<p><strong>下面结合图进行分析</strong></p>
+<blockquote>
+<p>rest(i-&gt;j)表示从i到j点剩余的油</p>
+</blockquote>
+<p>我们从起点出发，一直走啊走，到一个点就加油,走到<code>i-k</code>这个点的时候，车剩的油和加的油和起来都不能到下一个点了，我们跳过这个点。选<code>i-k+ 1</code>开始走,到<code>i-1</code>这个点时又发现走不下去了。于是我们选<code>i</code>这个开始走。一路油都够，一直走到终点。</p>
+<p> 这时如果剩余的油大于0哪么我们就说选i这个点可以。那么你是不是疑感”前面起点到i这些点你没有判断呀”。</p>
+<p>我们假设油刚刚好够,那么</p>
 <ol>
-<li><p>编辑距离对于短文本来说速度还可以，但是当文本太长时速度便不是很理想了</p>
-</li>
-<li><p>同时编辑距离只是从字面来计算相似度，对于歧义性、和多词一义这种毫无表征可言，简单来说就是无法从抽象出主题。</p>
-</li>
-<li><p>编辑距离相对于词嵌入，以wordvec来说，省去了分词、停用词处理等。</p>
-</li>
-<li><p>相对于tf-idf,后面再探讨</p>
-</li>
-<li><p>如今在这个bert横行的时代，我举得它的适用范围是<code>脱敏数据</code>，步骤简单，不需要太大的计算力，没有复杂的处理。</p>
-</li>
+<li><code>rest_ sum=0,</code></li>
+<li>前面有两个点都不能通过,说明<code>rest(起点-&gt;i)&lt;0,</code></li>
+<li>又<code>rest_ sum = rest(起点-&gt;i)+rest(i-&gt;终点)，则rest(i-&gt;终点)&gt;0,</code>也就是说到终点油是有剩余的,</li>
+</ol>
+<p><strong>带着剩余的油从终点出发一定是可以到<code>i</code>的，为什么呢，因为我剩余的油肯定够补给从起点到i-1所缺的油（上面三个公式），<em>终点剩余的油大于等于前半段缺的油，那么终点剩余的油肯定大于等于前半段每个点缺的油。</em></strong></p>
+<p><img src="https://gitee.com/diuzi/hexoImage/raw/master/img/spark/image-20201118224438085.png" alt="image-20201118224438085"></p>
+<p>结论：</p>
+<p>从某个点开始，如果能够蹦跶到数组末尾，而且最后rest_sum&gt;=0,那么就说这个点可以，不用去判断从数组末尾到这个点(环的另一半)，原因就是上面三个公式。</p>
+<p>代码：</p>
+<pre class=" language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">method2</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> gas<span class="token punctuation">,</span> cost<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        rest_sum<span class="token punctuation">,</span> run<span class="token punctuation">,</span> start_point <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
+
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>gas<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            rest_sum <span class="token operator">+=</span> gas<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> cost<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            run <span class="token operator">+=</span> gas<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> cost<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            <span class="token keyword">if</span> run <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                start_point <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span>
+                run <span class="token operator">=</span> <span class="token number">0</span>
+
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">if</span> rest_sum <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token keyword">else</span> start_point</code></pre>
+<p>画完图发现后来发现，其实最后走到的是数组头 gas[i]，最后计算的是 <code>gas[数组末尾]-cost[数组末尾]</code>，实际上判断的是能够走到数组头，表述有误，面这样讲解更好理解一些吧。</p>
+<h1 id="参考">3 参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/gas-station/">134. 加油站</a>评论区陈允怀大佬。</li>
 </ol>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -622,7 +579,7 @@ str2 = "execution"</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jdi147.com/2020/11/12/Levenshtein/">https://jdi147.com/2020/11/12/Levenshtein/</a>
+                    <a href="https://jdi147.com/2020/11/18/daily-leetcode-2020-1118-134-%E5%8A%A0%E6%B2%B9%E7%AB%99/">https://jdi147.com/2020/11/18/daily-leetcode-2020-1118-134-%E5%8A%A0%E6%B2%B9%E7%AB%99/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -660,8 +617,8 @@ str2 = "execution"</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                                    <span class="chip bg-color">动态规划</span>
+                                <a href="/tags/leetcode/">
+                                    <span class="chip bg-color">leetcode</span>
                                 </a>
                             
                         </div>
@@ -832,7 +789,7 @@ str2 = "execution"</code></pre>
         repo: 'diuzi.github.io',
         owner: 'diuzi',
         admin: "diuzi",
-        id: '2020-11-12T22-04-16',
+        id: '2020-11-18T13-52-05',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1119,29 +1076,30 @@ str2 = "execution"</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/13/daily-leetcode-2020-1113-328-%E5%A5%87%E5%81%B6%E9%93%BE%E8%A1%A8/">
+                <a href="/2020/11/18/daily-leetcode-2020-1118-134-%E5%8A%A0%E6%B2%B9%E7%AB%99/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="daily_leetcode_2020_1113_328_奇偶链表">
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="daily_leetcode_2020_1118_134_加油站">
                         
-                        <span class="card-title">daily_leetcode_2020_1113_328_奇偶链表</span>
+                        <span class="card-title">daily_leetcode_2020_1118_134_加油站</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            leetcode328 奇偶链表
+                            leetcode134 加油站
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1154,6 +1112,7 @@ str2 = "execution"</code></pre>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1172,24 +1131,24 @@ str2 = "execution"</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/12/daily-leetcode-2020-1112-922-%E6%8C%89%E5%A5%87%E5%81%B6%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%842/">
+                <a href="/2020/11/17/daily-leetcode-2020-1117-1030-%E8%B7%9D%E7%A6%BB%E9%A1%BA%E5%BA%8F%E6%8E%92%E5%88%97%E4%B8%BE%E8%AF%81%E5%8D%95%E5%85%83%E6%A0%BC/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="daily_leetcode_2020_1112_922_按奇偶排序数组2">
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="daily_leetcode_2020_1117_1030_距离顺序排列矩阵单元格">
                         
-                        <span class="card-title">daily_leetcode_2020_1112_922_按奇偶排序数组2</span>
+                        <span class="card-title">daily_leetcode_2020_1117_1030_距离顺序排列矩阵单元格</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            leetcode922 按奇偶排序数组2
+                            leetcode1030 距离顺序排列矩阵单元格
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-17
                             </span>
                         <span class="publish-author">
                             
