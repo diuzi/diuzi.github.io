@@ -70,6 +70,8 @@
       
         <tags>
             
+            <tag> BFS </tag>
+            
             <tag> 排序 </tag>
             
         </tags>
@@ -197,6 +199,8 @@
             
             <tag> 排序 </tag>
             
+            <tag> 双指针 </tag>
+            
         </tags>
       
     </entry>
@@ -295,7 +299,9 @@
       
         <tags>
             
-            <tag> 动态规划, 递归 </tag>
+            <tag> 动态规划 </tag>
+            
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -395,7 +401,9 @@
       
         <tags>
             
-            <tag> 贪心,动态规划 </tag>
+            <tag> 动态规划 </tag>
+            
+            <tag> 贪心 </tag>
             
         </tags>
       
@@ -420,7 +428,9 @@
       
         <tags>
             
-            <tag> 排序,队列 </tag>
+            <tag> 排序 </tag>
+            
+            <tag> 队列 </tag>
             
         </tags>
       
