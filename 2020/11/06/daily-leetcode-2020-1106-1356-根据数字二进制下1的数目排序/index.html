@@ -1,0 +1,1598 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="daily_leetcode_1106_1356_根据数字二进制下1的数目排序, jdi146 blog, jdi147 blog, diuzi">
+    <meta name="description" content="jdi146  blog">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>daily_leetcode_1106_1356_根据数字二进制下1的数目排序 | jdi147</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">jdi147</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友链</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">jdi147</div>
+        <div class="logo-desc">
+            
+            jdi146  blog
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友链
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">daily_leetcode_1106_1356_根据数字二进制下1的数目排序</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+                                <span class="chip bg-color">位运算</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/daily-leetcode/" class="post-category">
+                                daily_leetcode
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-11-06
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>字数:&nbsp;&nbsp;
+                    1.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    7 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="题目描述">1 题目描述</h1><blockquote>
+<p>给你一个整数数组 arr 。请你将数组中的元素按照其二进制表示中数字 1 的数目升序排序。</p>
+<p>如果存在多个数字二进制中 1 的数目相同，则必须将它们按照数值大小升序排列。</p>
+<p>请你返回排序后的数组。</p>
+</blockquote>
+<pre><code>输入：arr = [0,1,2,3,4,5,6,7,8]
+输出：[0,1,2,4,8,3,5,6,7]
+解释：[0] 是唯一一个有 0 个 1 的数。
+[1,2,4,8] 都有 1 个 1 。
+[3,5,6] 有 2 个 1 。
+[7] 有 3 个 1 。
+按照 1 的个数排序得到的结果数组为 [0,1,2,4,8,3,5,6,7]
+
+输入：arr = [1024,512,256,128,64,32,16,8,4,2,1]
+输出：[1,2,4,8,16,32,64,128,256,512,1024]
+解释：数组中所有整数二进制下都只有 1 个 1 ，所以你需要按照数值大小将它们排序。
+
+输入：arr = [10000,10000]
+输出：[10000,10000]
+
+输入：arr = [2,3,5,7,11,13,17,19]
+输出：[2,3,5,17,7,11,13,19]
+
+输入：arr = [10,100,1000,10000]
+输出：[10,100,10000,1000]
+
+1 &lt;= arr.length &lt;= 500
+0 &lt;= arr[i] &lt;= 10^4</code></pre>
+<h1 id="分析问题">2 分析问题</h1><blockquote>
+<p>问题的本质就是一个排序问题，而不同平常的排序，多了一项条件，就是根据 其二进制表示中1的数目来排序，而数目相同则按数字的大小排序，如果你学过java，到这里 我想你应该知道 如何操作了。Array.sort(arr)</p>
+</blockquote>
+<hr>
+<p>非常清晰的问题：</p>
+<ol>
+<li>统计序列中每个数的二进制表示中1的个数</li>
+<li>利用上一步得到的结果数本身进行排序操作</li>
+</ol>
+<p>两个步骤中，均有常规版操作以及优化</p>
+<h1 id="步步解题">3 步步解题</h1><ol>
+<li>第一步，统计序列中每个数的二进制表示中1的个数</li>
+</ol>
+<p><strong>方法1，求得二进制序列，然后做统计</strong></p>
+<p><strong><em>十进制转二进制</em></strong></p>
+<ol>
+<li>最常规的，<strong>求模取逆</strong></li>
+</ol>
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">""" 求一个数的进制 """</span>
+<span class="token keyword">def</span> <span class="token function">get_num_bin</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    res_str <span class="token operator">=</span> <span class="token string">""</span>
+    <span class="token keyword">while</span> number<span class="token punctuation">:</span>
+        tmp <span class="token operator">=</span> number <span class="token operator">%</span> <span class="token number">2</span>
+        res_str <span class="token operator">=</span> str<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span> <span class="token operator">+</span> res_str
+        number <span class="token operator">//=</span> <span class="token number">2</span>
+    <span class="token keyword">return</span> res_str </code></pre>
+<ol start="2">
+<li>递归求二进制</li>
+</ol>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_num_bin</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> number <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> number
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> get_num_bin<span class="token punctuation">(</span>n<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">10</span><span class="token operator">+</span>n<span class="token operator">%</span><span class="token number">2</span></code></pre>
+<ol start="3">
+<li>和方法一类似，可以用数组存放、或者累乘法表示成正数，如果有负数要注意变号处理</li>
+</ol>
+<p>求得二进制后，我们便可以统计 1的个数。</p>
+<hr>
+<p><strong>方法2，巧妙的位运算</strong></p>
+<p>另一种方法，不用显示地去求二进制的表示，便可以求其中1的个数，那就这就涉及到了<em>位运算</em></p>
+<p>给定一个数的二进制，我们开始从最右边开始起判断，计数1的个数=&gt; 那么问题来了，如何判断最右边的数是1呢？第二个问题，何时结束呢？</p>
+<p>如果能想到0，1这两个特殊的数字以及位运算操作，那么解决办法就来了。</p>
+<blockquote>
+<ol>
+<li>1的二进制表示还是1，当用1与一个数做与运算时，得到的结果如果是1，那么最右边就是1，得到结果为0，那么就不是1。</li>
+<li>何时结束，当然是遍历到最左边了，但是我们没必要知道二进制序列多长，况且我们还是从后面往前面走，如果去循环遍历判断计算1的个数，那和前面的方法没有什么区别了。另一种<code>while</code>式的思考方法当然是序列中没有1了，那我们就没有必要继续判断了。那么问题来了，如何判断序列中没有1了呢？ 那么解决办法来了=&gt; 0的二进制还是0，是唯一一个二进制表示没有1的数。假如我们有一种方法，使得这个数不断地向0靠近，并且保证最右边一位被更新。那么这种方法就是 <strong>右移</strong></li>
+</ol>
+</blockquote>
+<p>根据前面的分析，写处代码如下：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_a_number_bin_count</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+
+    得到一个数的二进制表示形式中 1 的个数
+    :param number:
+    :return:
+    """</span>
+    res_count <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span> number<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> number <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            res_count <span class="token operator">+=</span> <span class="token number">1</span>
+         number <span class="token operator">=</span> number <span class="token operator">>></span><span class="token number">1</span> 
+    <span class="token keyword">return</span> res_count</code></pre>
+<p>但是上面的代码对于负数就不那么通用了，虽然此题的所有测试样例都是正数，但是有必要学习更加适用的方法。</p>
+<hr>
+<p>我们先来观察一个整数与它的次小整数 在二进制表示上的区别，二进制的含义是什么=&gt; 满二进1。一个数加1，会发生的情况：最右边加1，满2进1，该位变0。进为后下一位为2那么继续进位，该位变0，如果进位后位1，那么就停止。我们可以发现的是，一个数加1后，在位表示上的变化是 <strong>遇到一个白马王子-&gt;1停止，而这个白马王子是最次等的，是这个数加1后最右边的那个1，或许再往左还有更好的，但是它满足了，停止脚步了</strong>.</p>
+<p>从上面的分析中，我们可以得出一个结论：<strong>一个整数与它的次小整数在二进制表示上的差异是: 将该数右边的1变为0，最右边那个1的右边的所有位变为1</strong>。以1100得到1011为例</p>
+<p>有了上面的结论，我们去做个小实验： <strong>用一个整数和它的次小整数做 与 运算，发现操作结果恰恰是将这个整数最右边的1变为了0</strong></p>
+<p>1100 &amp; 1011 = 1000</p>
+<p>根据前面的分析，我们可以写处这样的代码</p>
+<pre class=" language-python"><code class="language-python">        <span class="token keyword">def</span> <span class="token function">get_a_number_bin_count</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token triple-quoted-string string">"""
+
+            得到一个数的二进制表示形式中 1 的个数
+            :param number:
+            :return:
+            """</span>
+            res_count <span class="token operator">=</span> <span class="token number">0</span>
+            <span class="token keyword">while</span> number<span class="token punctuation">:</span>
+                number <span class="token operator">=</span> number <span class="token operator">&amp;</span> <span class="token punctuation">(</span>number <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+                res_count <span class="token operator">+=</span> <span class="token number">1</span>
+            <span class="token keyword">return</span> res_count</code></pre>
+<ol start="2">
+<li>利用上一步得到的结果与数本身进行排序操作, </li>
+</ol>
+<p>最简单的冒泡排序</p>
+<pre class=" language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">sort_by_bits</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+
+        根据数字的二进制形式中的1的个数 对 array 进行排序
+        :param array:
+        :return: a array,排好序的结果
+        """</span>
+
+        <span class="token keyword">def</span> <span class="token function">get_a_number_bin_count</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token triple-quoted-string string">"""
+
+            得到一个数的二进制表示形式中 1 的个数
+            :param number:
+            :return:
+            """</span>
+            res_count <span class="token operator">=</span> <span class="token number">0</span>
+            <span class="token keyword">while</span> number<span class="token punctuation">:</span>
+                number <span class="token operator">=</span> number <span class="token operator">&amp;</span> <span class="token punctuation">(</span>number <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+                res_count <span class="token operator">+=</span> <span class="token number">1</span>
+            <span class="token keyword">return</span> res_count
+
+        tmp_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> get_a_number_bin_count<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> array<span class="token punctuation">]</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>tmp_list<span class="token punctuation">)</span>
+
+        <span class="token triple-quoted-string string">""" 排序 """</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>tmp_list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>tmp_list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> tmp_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> tmp_list<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    tmp_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>tmp_list<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> tmp_list<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>tmp_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> tmp_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> tmp_list<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                        tmp_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>tmp_list<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> tmp_list<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>tmp_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> tmp_list<span class="token punctuation">]</span></code></pre>
+<p>利用现成的:</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">return</span> sorted<span class="token punctuation">(</span>arr<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> <span class="token punctuation">(</span>get_a_number_bin_count<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span> reverse<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></code></pre>
+<p>当然，如果你对<code>python</code>的常用函数熟悉，你还可以写处更简短的代码：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">return</span> sorted<span class="token punctuation">(</span>arr<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> <span class="token punctuation">(</span>bin<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span> reverse<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></code></pre>
+<h1 id="总结">4 总结</h1><ol>
+<li>一个整数的二进制上最右边的1变为0，最右边那个1的右边的所有位变为1，便得到次小整数</li>
+<li>0是唯一一个二进制表示没有1的数</li>
+<li>一个整数如果是2的整数次方，那么它的二进制表示中有且只有一位是1。</li>
+</ol>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">jdi146</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jdi147.com/2020/11/06/daily-leetcode-2020-1106-1356-%E6%A0%B9%E6%8D%AE%E6%95%B0%E5%AD%97%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%8B1%E7%9A%84%E6%95%B0%E7%9B%AE%E6%8E%92%E5%BA%8F/">https://jdi147.com/2020/11/06/daily-leetcode-2020-1106-1356-%E6%A0%B9%E6%8D%AE%E6%95%B0%E5%AD%97%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%8B1%E7%9A%84%E6%95%B0%E7%9B%AE%E6%8E%92%E5%BA%8F/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">jdi146</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+                                    <span class="chip bg-color">位运算</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">谢谢赏识</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '8685060b7f7ce20bc31f',
+        clientSecret: 'e8467bbe5884738e2fdf3195ca08e7550f84e094',
+        repo: 'diuzi.github.io',
+        owner: 'diuzi',
+        admin: "diuzi",
+        id: '2020-11-06T14-00-41',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '44eKvmQTNxoWGmGBUjW9kihp-gzGzoHsz',
+        appKey: '7TXUsSvB1XuI1pew74hKg7Tq',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'robohash',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '如果你没有github账号，可在此留言'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/11/07/scala%E7%9A%84reflect/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/7.jpg" class="responsive-img" alt="scala的reflect">
+                        
+                        <span class="card-title">scala的reflect</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            详解scala reflect
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/scala/" class="post-category">
+                                    scala
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/scala%E8%BF%9B%E9%98%B6/">
+                        <span class="chip bg-color">scala进阶</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/11/04/daily-leetcode-2020-1104-57-%E6%8F%92%E5%85%A5%E5%8C%BA%E9%97%B4/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/18.jpg" class="responsive-img" alt="daily_leetCode_2020_1104_57_插入区间">
+                        
+                        <span class="card-title">daily_leetCode_2020_1104_57_插入区间</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            leetcode57 插入区间
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/daily-leetcode/" class="post-category">
+                                    daily_leetcode
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E7%BB%84/">
+                        <span class="chip bg-color">数组</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('30')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: jdi147<br />'
+            + '作者: jdi146<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            jdi147&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">jdi146</a>
+            &nbsp;版权所有
+            <!-- &nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> -->
+            <!-- |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;字数:&nbsp;<span
+                class="white-color">34.8k</span>&nbsp;
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;观剑量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;
+            </span>
+            
+            <!-- 
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+             -->
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "08";
+                    var startDate = "20";
+                    var startHour = "16";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "此剑已铸 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " ;
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "此剑已铸 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " ;
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a target="_blank" rel="noopener" href="https://github.com/diuzi" >
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:jdi147.com@gmail.com" >
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1547057160" class="tooltipped" target="_blank" data-tooltip="1547057160" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="输入关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.01'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

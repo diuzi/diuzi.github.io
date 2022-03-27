@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="daily_leetCode_1106_1356, jdi146 blog, jdi147 blog, diuzi">
+    <meta name="keywords" content="daily_leetcode_2020_1201_34_在排序数组中查找元素的第一个和最后一个位置, jdi146 blog, jdi147 blog, diuzi">
     <meta name="description" content="jdi146  blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>daily_leetCode_1106_1356 | jdi147</title>
+    <title>daily_leetcode_2020_1201_34_在排序数组中查找元素的第一个和最后一个位置 | jdi147</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/libs/awesome/css/all.css">
@@ -259,12 +259,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">daily_leetCode_1106_1356</h1>
+                    <h1 class="description center-align post-title">daily_leetcode_2020_1201_34_在排序数组中查找元素的第一个和最后一个位置</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
-                                <span class="chip bg-color">位运算</span>
+                            <a href="/tags/%E4%BA%8C%E5%88%86%E6%B3%95/">
+                                <span class="chip bg-color">二分法</span>
                             </a>
                         
                     </div>
@@ -406,7 +406,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-06
+                    2020-12-01
                 </div>
                 
 
@@ -415,14 +415,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>字数:&nbsp;&nbsp;
-                    1.8k
+                    446
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    1 分
                 </div>
                 
 
@@ -432,165 +432,41 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="题目描述">1 题目描述</h1><blockquote>
-<p>给你一个整数数组 arr 。请你将数组中的元素按照其二进制表示中数字 1 的数目升序排序。</p>
-<p>如果存在多个数字二进制中 1 的数目相同，则必须将它们按照数值大小升序排列。</p>
-<p>请你返回排序后的数组。</p>
-</blockquote>
-<pre><code>输入：arr = [0,1,2,3,4,5,6,7,8]
-输出：[0,1,2,4,8,3,5,6,7]
-解释：[0] 是唯一一个有 0 个 1 的数。
-[1,2,4,8] 都有 1 个 1 。
-[3,5,6] 有 2 个 1 。
-[7] 有 3 个 1 。
-按照 1 的个数排序得到的结果数组为 [0,1,2,4,8,3,5,6,7]
+                <h1 id="题目描述">1 题目描述</h1><p>给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。</p>
+<p>如果数组中不存在目标值 target，返回 [-1, -1]。</p>
+<pre><code>输入：nums = [5,7,7,8,8,10], target = 6
+输出：[-1,-1]
 
-输入：arr = [1024,512,256,128,64,32,16,8,4,2,1]
-输出：[1,2,4,8,16,32,64,128,256,512,1024]
-解释：数组中所有整数二进制下都只有 1 个 1 ，所以你需要按照数值大小将它们排序。
+输入：nums = [], target = 0
+输出：[-1,-1]
 
-输入：arr = [10000,10000]
-输出：[10000,10000]
+输入：nums = [5,7,7,8,8,10], target = 8
+输出：[3,4]</code></pre>
+<h1 id="题解">2 题解</h1><p>这到题和剑指offer53-1比较像，如果我们从头进行遍历，那么没有利用到数组已排序的特点，对于有序的序列，大多数考察的都是二分法。</p>
+<p>在这个题中，我们同样可以利用二分法去寻找刚大于target的那个元素的下标 rightIndex，则rightIndex-1 便是target的右界。</p>
+<p>同样我们去寻找搞好小于target的元素的下标leftIndex, 则leftIndex+1便是target的左界，</p>
+<p>然后判断左右界就可以直到答案了。</p>
+<p>为了代码复用性，我们可以这样思考，<strong>由于数组是有序的，寻找左界不就相当于寻找刚好比它小的元素的 刚好大于它的元素 的下标</strong>，这样我们写一个函数就可以解决寻找左右界的问题。</p>
+<p>代码如下：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">searchRange</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
 
-输入：arr = [2,3,5,7,11,13,17,19]
-输出：[2,3,5,17,7,11,13,19]
+    <span class="token keyword">def</span> <span class="token function">get_right_border</span><span class="token punctuation">(</span>nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> tar<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        left<span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
+        <span class="token keyword">while</span> left <span class="token operator">&lt;=</span> right<span class="token punctuation">:</span>
+            mid <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">>></span> <span class="token number">1</span>
+            <span class="token keyword">if</span> nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> tar<span class="token punctuation">:</span>
+                left <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                right <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span>
+        <span class="token keyword">return</span> left
 
-输入：arr = [10,100,1000,10000]
-输出：[10,100,10000,1000]
-
-1 &lt;= arr.length &lt;= 500
-0 &lt;= arr[i] &lt;= 10^4</code></pre>
-<h1 id="分析问题">2 分析问题</h1><blockquote>
-<p>问题的本质就是一个排序问题，而不同平常的排序，多了一项条件，就是根据 其二进制表示中1的数目来排序，而数目相同则按数字的大小排序，如果你学过java，到这里 我想你应该知道 如何操作了。Array.sort(arr)</p>
-</blockquote>
-<hr>
-<p>非常清晰的问题：</p>
-<ol>
-<li>统计序列中每个数的二进制表示中1的个数</li>
-<li>利用上一步得到的结果数本身进行排序操作</li>
-</ol>
-<p>两个步骤中，均有常规版操作以及优化</p>
-<h1 id="步步解题">3 步步解题</h1><ol>
-<li>第一步，统计序列中每个数的二进制表示中1的个数</li>
-</ol>
-<p><strong>方法1，求得二进制序列，然后做统计</strong></p>
-<p><strong><em>十进制转二进制</em></strong></p>
-<ol>
-<li>最常规的，<strong>求模取逆</strong></li>
-</ol>
-<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">""" 求一个数的进制 """</span>
-<span class="token keyword">def</span> <span class="token function">get_num_bin</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-    res_str <span class="token operator">=</span> <span class="token string">""</span>
-    <span class="token keyword">while</span> number<span class="token punctuation">:</span>
-        tmp <span class="token operator">=</span> number <span class="token operator">%</span> <span class="token number">2</span>
-        res_str <span class="token operator">=</span> str<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span> <span class="token operator">+</span> res_str
-        number <span class="token operator">//=</span> <span class="token number">2</span>
-    <span class="token keyword">return</span> res_str </code></pre>
-<ol start="2">
-<li>递归求二进制</li>
-</ol>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_num_bin</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> number <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> number
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> get_num_bin<span class="token punctuation">(</span>n<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">10</span><span class="token operator">+</span>n<span class="token operator">%</span><span class="token number">2</span></code></pre>
-<ol start="3">
-<li>和方法一类似，可以用数组存放、或者累乘法表示成正数，如果有负数要注意变号处理</li>
-</ol>
-<p>求得二进制后，我们便可以统计 1的个数。</p>
-<hr>
-<p><strong>方法2，巧妙的位运算</strong></p>
-<p>另一种方法，不用显示地去求二进制的表示，便可以求其中1的个数，那就这就涉及到了<em>位运算</em></p>
-<p>给定一个数的二进制，我们开始从最右边开始起判断，计数1的个数=&gt; 那么问题来了，如何判断最右边的数是1呢？第二个问题，何时结束呢？</p>
-<p>如果能想到0，1这两个特殊的数字以及位运算操作，那么解决办法就来了。</p>
-<blockquote>
-<ol>
-<li>1的二进制表示还是1，当用1与一个数做与运算时，得到的结果如果是1，那么最右边就是1，得到结果为0，那么就不是1。</li>
-<li>何时结束，当然是遍历到最左边了，但是我们没必要知道二进制序列多长，况且我们还是从后面往前面走，如果去循环遍历判断计算1的个数，那和前面的方法没有什么区别了。另一种<code>while</code>式的思考方法当然是序列中没有1了，那我们就没有必要继续判断了。那么问题来了，如何判断序列中没有1了呢？ 那么解决办法来了=&gt; 0的二进制还是0，是唯一一个二进制表示没有1的数。假如我们有一种方法，使得这个数不断地向0靠近，并且保证最右边一位被更新。那么这种方法就是 <strong>右移</strong></li>
-</ol>
-</blockquote>
-<p>根据前面的分析，写处代码如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_a_number_bin_count</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""
-
-    得到一个数的二进制表示形式中 1 的个数
-    :param number:
-    :return:
-    """</span>
-    res_count <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">while</span> number<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> number <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">:</span>
-            res_count <span class="token operator">+=</span> <span class="token number">1</span>
-         number <span class="token operator">=</span> number <span class="token operator">>></span><span class="token number">1</span> 
-    <span class="token keyword">return</span> res_count</code></pre>
-<p>但是上面的代码对于负数就不那么通用了，虽然此题的所有测试样例都是正数，但是有必要学习更加适用的方法。</p>
-<hr>
-<p>我们先来观察一个整数与它的次小整数 在二进制表示上的区别，二进制的含义是什么=&gt; 满二进1。一个数加1，会发生的情况：最右边加1，满2进1，该位变0。进为后下一位为2那么继续进位，该位变0，如果进位后位1，那么就停止。我们可以发现的是，一个数加1后，在位表示上的变化是 <strong>遇到一个白马王子-&gt;1停止，而这个白马王子是最次等的，是这个数加1后最右边的那个1，或许再往左还有更好的，但是它满足了，停止脚步了</strong>.</p>
-<p>从上面的分析中，我们可以得出一个结论：<strong>一个整数与它的次小整数在二进制表示上的差异是: 将该数右边的1变为0，最右边那个1的右边的所有位变为1</strong>。以1100得到1011为例</p>
-<p>有了上面的结论，我们去做个小实验： <strong>用一个整数和它的次小整数做 与 运算，发现操作结果恰恰是将这个整数最右边的1变为了0</strong></p>
-<p>1100 &amp; 1011 = 1000</p>
-<p>根据前面的分析，我们可以写处这样的代码</p>
-<pre class=" language-python"><code class="language-python">        <span class="token keyword">def</span> <span class="token function">get_a_number_bin_count</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token triple-quoted-string string">"""
-
-            得到一个数的二进制表示形式中 1 的个数
-            :param number:
-            :return:
-            """</span>
-            res_count <span class="token operator">=</span> <span class="token number">0</span>
-            <span class="token keyword">while</span> number<span class="token punctuation">:</span>
-                number <span class="token operator">=</span> number <span class="token operator">&amp;</span> <span class="token punctuation">(</span>number <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
-                res_count <span class="token operator">+=</span> <span class="token number">1</span>
-            <span class="token keyword">return</span> res_count</code></pre>
-<ol start="2">
-<li>利用上一步得到的结果与数本身进行排序操作, </li>
-</ol>
-<p>最简单的冒泡排序</p>
-<pre class=" language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">sort_by_bits</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""
-
-        根据数字的二进制形式中的1的个数 对 array 进行排序
-        :param array:
-        :return: a array,排好序的结果
-        """</span>
-
-        <span class="token keyword">def</span> <span class="token function">get_a_number_bin_count</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token triple-quoted-string string">"""
-
-            得到一个数的二进制表示形式中 1 的个数
-            :param number:
-            :return:
-            """</span>
-            res_count <span class="token operator">=</span> <span class="token number">0</span>
-            <span class="token keyword">while</span> number<span class="token punctuation">:</span>
-                number <span class="token operator">=</span> number <span class="token operator">&amp;</span> <span class="token punctuation">(</span>number <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
-                res_count <span class="token operator">+=</span> <span class="token number">1</span>
-            <span class="token keyword">return</span> res_count
-
-        tmp_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> get_a_number_bin_count<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> array<span class="token punctuation">]</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>tmp_list<span class="token punctuation">)</span>
-
-        <span class="token triple-quoted-string string">""" 排序 """</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>tmp_list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>tmp_list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> tmp_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> tmp_list<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                    tmp_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>tmp_list<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> tmp_list<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>tmp_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-
-                <span class="token keyword">else</span><span class="token punctuation">:</span>
-                    <span class="token keyword">if</span> tmp_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> tmp_list<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                        tmp_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>tmp_list<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> tmp_list<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>tmp_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-
-        <span class="token keyword">return</span> <span class="token punctuation">[</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> tmp_list<span class="token punctuation">]</span></code></pre>
-<p>利用现成的:</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">return</span> sorted<span class="token punctuation">(</span>arr<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> <span class="token punctuation">(</span>get_a_number_bin_count<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span> reverse<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></code></pre>
-<p>当然，如果你对<code>python</code>的常用函数熟悉，你还可以写处更简短的代码：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">return</span> sorted<span class="token punctuation">(</span>arr<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> <span class="token punctuation">(</span>bin<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span> reverse<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></code></pre>
-<h1 id="总结">4 总结</h1><ol>
-<li>一个整数的二进制上最右边的1变为0，最右边那个1的右边的所有位变为1，便得到次小整数</li>
-<li>0是唯一一个二进制表示没有1的数</li>
-<li>一个整数如果是2的整数次方，那么它的二进制表示中有且只有一位是1。</li>
-</ol>
+    <span class="token keyword">if</span> <span class="token operator">not</span> List<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+    left_border <span class="token operator">=</span> get_right_border<span class="token punctuation">(</span>nums<span class="token punctuation">,</span> target <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    right_border <span class="token operator">=</span> get_right_border<span class="token punctuation">(</span>nums<span class="token punctuation">,</span> target<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> left_border <span class="token operator">==</span> right_border<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>left_border<span class="token punctuation">,</span> right_border <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -634,7 +510,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jdi147.com/2020/11/06/daily-leetCode-2020-1106-1356/">https://jdi147.com/2020/11/06/daily-leetCode-2020-1106-1356/</a>
+                    <a href="https://jdi147.com/2020/12/01/daily-leetcode-2020-1201-34-%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE/">https://jdi147.com/2020/12/01/daily-leetcode-2020-1201-34-%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -672,8 +548,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
-                                    <span class="chip bg-color">位运算</span>
+                                <a href="/tags/%E4%BA%8C%E5%88%86%E6%B3%95/">
+                                    <span class="chip bg-color">二分法</span>
                                 </a>
                             
                         </div>
@@ -844,7 +720,7 @@
         repo: 'diuzi.github.io',
         owner: 'diuzi',
         admin: "diuzi",
-        id: '2020-11-06T14-00-41',
+        id: '2020-12-01T19-27-48',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1135,44 +1011,35 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/11/07/scala%E7%9A%84reflect/">
+                <a href="/2020/12/02/daily-leetcode-2020-1202-321-%E6%8B%BC%E6%8E%A5%E6%9C%80%E5%A4%A7%E6%95%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/7.jpg" class="responsive-img" alt="scala的reflect">
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="daily_leetcode_2020_1202_321_拼接最大数">
                         
-                        <span class="card-title">scala的reflect</span>
+                        <span class="card-title">daily_leetcode_2020_1202_321_拼接最大数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            详解scala reflect
+                            
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-02
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/scala/" class="post-category">
-                                    scala
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            jdi146
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/scala%E8%BF%9B%E9%98%B6/">
-                        <span class="chip bg-color">scala进阶</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1184,44 +1051,36 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/04/daily-leetCode-2020-1104-57-%E6%8F%92%E5%85%A5%E5%8C%BA%E9%97%B4/">
+                <a href="/2020/11/30/daily-leetcode-2020-1130-767-%E9%87%8D%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/18.jpg" class="responsive-img" alt="daily_leetCode_2020_1104_57_插入区间">
+                        <img src="https://cdn.jsdelivr.net/gh/diuzi/diuzi.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="daily_leetcode_2020_1130_767_重构字符串">
                         
-                        <span class="card-title">daily_leetCode_2020_1104_57_插入区间</span>
+                        <span class="card-title">daily_leetcode_2020_1130_767_重构字符串</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            leetcode57 插入区间
+                            leetcode767 重构字符串
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/daily-leetcode/" class="post-category">
-                                    daily_leetcode
+                            <a href="/categories/dialy-leetcode/" class="post-category">
+                                    dialy_leetcode
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="chip bg-color">数组</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1417,7 +1276,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;字数:&nbsp;<span
-                class="white-color">29.6k</span>&nbsp;
+                class="white-color">34.8k</span>&nbsp;
             
             
             
